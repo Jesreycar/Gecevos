@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Rectangle;
 import java.awt.Font;
+import javax.swing.border.LineBorder;
 /**
  * Menu principal para alumnos
  * @author Jesus Reyes
@@ -71,6 +72,7 @@ public class MenuAlumno extends JFrame {
 		lblCurso.setForeground(Color.WHITE);
 		
 		JLabel lblImg = new JLabel("");
+		lblImg.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblImg.setBounds(new Rectangle(0, 0, 128, 128));
 		Icon icono = new ImageIcon(new ImageIcon("img/ImgPerfil.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_DEFAULT));
 		lblImg.setIcon(icono);

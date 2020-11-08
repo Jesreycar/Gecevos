@@ -9,14 +9,24 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
+
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.JToggleButton;
 import javax.swing.JTabbedPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 /**
  * Esta clase es el perfil del usuario logueado, tambien se podra modificar los datos de este usuario
  * @author Juan Antonio Escribano Díaz
@@ -158,15 +168,18 @@ public class Perfil extends JFrame {
 		contentPane.add(lblDNI);
 		
 		JTabbedPane tbModificar = new JTabbedPane(JTabbedPane.TOP);
+		tbModificar.setBorder(null);
+		tbModificar.setRequestFocusEnabled(false);
 		tbModificar.setForeground(Color.white);
 		tbModificar.setFont(new Font("Dialog", Font.PLAIN, 15));
-		tbModificar.setBackground(new Color(118, 45, 47));
+		tbModificar.setBackground(new Color(59, 22, 24));
 		tbModificar.setBounds(33, 253, 497, 200);
 		contentPane.add(tbModificar);
 		
 		JPanel jpEditarPerfil = new JPanel();
+		jpEditarPerfil.setBorder(null);
 		jpEditarPerfil.setBackground(new Color(118, 45, 47));
-		tbModificar.addTab("New tab", null, jpEditarPerfil, null);
+		tbModificar.addTab("Editar Perfil", null, jpEditarPerfil, null);
 		
 		JPanel jpCambiarContra= new JPanel();
 		jpCambiarContra.setBackground(new Color(118, 45, 47));
@@ -176,6 +189,12 @@ public class Perfil extends JFrame {
 		jpCambiarFoto.setBackground(new Color(118, 45, 47));
 		tbModificar.addTab("New tab", null, jpCambiarFoto, null);
 		
+		tbModificar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				tbModificar.setBackgroundAt(tbModificar.getSelectedIndex(), new Color(119, 55, 57));
+			}
+		});
 		
 	}
 }

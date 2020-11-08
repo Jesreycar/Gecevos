@@ -133,6 +133,9 @@ public class MenuProfesor extends JFrame {
 		JButton btnPartes = new JButton("Partes");
 		btnPartes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				PartesProfesor parte = new PartesProfesor();
+				parte.setVisible(true);
 			}
 		});
 		btnPartes.setForeground(Color.WHITE);
@@ -147,6 +150,9 @@ public class MenuProfesor extends JFrame {
 		JButton btnClases = new JButton("Mis Clases");
 		btnClases.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				MisClases clase = new MisClases();
+				clase.setVisible(true);
 			}
 		});
 		btnClases.setForeground(Color.WHITE);

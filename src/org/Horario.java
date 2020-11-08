@@ -65,12 +65,17 @@ public class Horario extends JFrame {
 				new Object[][] {
 					{"8:30-9:30", "ACD"},
 					{"9:30-10:30", "DIN"},
+					{"9:30-10:30", "DIN"},
+					{"9:30-10:30", "DIN"},
+					{"9:30-10:30", "DIN"},
+					{"9:30-10:30", "DIN"},
 				},
 				new String[] {
 						"Horas", "Lunes", "Martes", "Miercoles", "Jueves", "Vienes"
 				}
 				));
 		table.setDefaultEditor(Object.class, null);
+		table.setRowHeight(53);
 		panel.add(table);
 
 		//Boton para volver al menu de usuario

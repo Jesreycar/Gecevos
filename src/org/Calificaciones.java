@@ -11,6 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollBar;
 
 /**
  * Clase para mostrar las calificaciones del alumno por asignatura
@@ -83,13 +84,21 @@ public class Calificaciones extends JFrame {
 			new Object[][] {
 				{"Matematicas", "6"},
 				{"Física", "8"},
+				{"Física", "8"},
+				{"Física", "8"},
+				{"Física", "8"},
 			},
 			new String[] {
 				"Asignatura", "Nota"
 			}
 		));
 		table.setDefaultEditor(Object.class, null);
+		table.setRowHeight(50);
 		panel.add(table);
+		
+		//Scroll para la lista
+		JScrollBar scrollBar = new JScrollBar();
+		panel.add(scrollBar, BorderLayout.EAST);
 		
 		//Boton volver al menu del usuario
 		JButton btnVolver = new JButton("Volver");
@@ -108,5 +117,4 @@ public class Calificaciones extends JFrame {
 		btnVolver.setBounds(215, 425, 132, 25);
 		contentPane.add(btnVolver);
 	}
-
 }

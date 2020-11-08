@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import java.awt.Component;
 import java.awt.Font;
@@ -56,7 +57,7 @@ public class Perfil extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setTitle("Perfil");
-		
+
 		JLabel lblImg = new JLabel("img");
 		lblImg.setBounds(new Rectangle(33, 20, 165, 136));
 		Icon icono = new ImageIcon(new ImageIcon("img/ImgPerfil.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_REPLICATE));
@@ -78,7 +79,7 @@ public class Perfil extends JFrame {
 		lblEtiquetaUsuario.setFont(new Font("Dialog", Font.PLAIN, 15));
 		lblEtiquetaUsuario.setBounds(242, 21, 150, 37);
 		contentPane.add(lblEtiquetaUsuario);
-		
+
 
 		JLabel lblUsuario= new JLabel("\"Nombre de Usuario\"");
 		lblUsuario.setOpaque(true);
@@ -90,7 +91,7 @@ public class Perfil extends JFrame {
 		lblUsuario.setBounds(390, 21, 150, 37);
 		lblUsuario.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		contentPane.add(lblUsuario);
-		
+
 		JLabel lblEtiquetaNombre = new JLabel("Nombre:");
 		lblEtiquetaNombre.setOpaque(true);
 		lblEtiquetaNombre.setHorizontalAlignment(SwingConstants.CENTER);
@@ -110,7 +111,7 @@ public class Perfil extends JFrame {
 		lblNombre.setFont(new Font("Dialog", Font.PLAIN, 15));
 		lblNombre.setBounds(390, 56, 150, 37);
 		contentPane.add(lblNombre);
-		
+
 		JLabel lblEtiquetaApellidos = new JLabel("Apellidos:");
 		lblEtiquetaApellidos.setOpaque(true);
 		lblEtiquetaApellidos.setHorizontalAlignment(SwingConstants.CENTER);
@@ -122,7 +123,7 @@ public class Perfil extends JFrame {
 		lblEtiquetaApellidos.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		lblEtiquetaApellidos.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		contentPane.add(lblEtiquetaApellidos);
-		
+
 		JLabel lblApellidos = new JLabel("\"Apellidos\"");
 		lblApellidos.setOpaque(true);
 		lblApellidos.setHorizontalAlignment(SwingConstants.CENTER);
@@ -132,7 +133,7 @@ public class Perfil extends JFrame {
 		lblApellidos.setFont(new Font("Dialog", Font.PLAIN, 15));
 		lblApellidos.setBounds(390, 91, 150, 37);
 		contentPane.add(lblApellidos);
-		
+
 		JLabel lblEtiquetaEmail = new JLabel("Email:");
 		lblEtiquetaEmail.setOpaque(true);
 		lblEtiquetaEmail.setHorizontalAlignment(SwingConstants.CENTER);
@@ -142,7 +143,7 @@ public class Perfil extends JFrame {
 		lblEtiquetaEmail.setBackground(new Color(59, 22, 24));
 		lblEtiquetaEmail.setBounds(43, 127, 250, 40);
 		contentPane.add(lblEtiquetaEmail);
-		
+
 		JLabel lblEmail = new JLabel("\"Email\"");
 		lblEmail.setOpaque(true);
 		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
@@ -152,7 +153,7 @@ public class Perfil extends JFrame {
 		lblEmail.setBackground(new Color(59, 22, 24));
 		lblEmail.setBounds(290, 127, 250, 40);
 		contentPane.add(lblEmail);
-		
+
 		JLabel lblEtiquetaDNI = new JLabel("DNI:");
 		lblEtiquetaDNI.setOpaque(true);
 		lblEtiquetaDNI.setHorizontalAlignment(SwingConstants.CENTER);
@@ -172,7 +173,7 @@ public class Perfil extends JFrame {
 		lblDNI.setBackground(new Color(59, 22, 24));
 		lblDNI.setBounds(290, 166, 250, 40);
 		contentPane.add(lblDNI);
-		
+
 		/*
 		 * Creación del TabbedPanel
 		 */
@@ -203,12 +204,13 @@ public class Perfil extends JFrame {
 		lblEtiquetaUsuario_1.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
 		lblEtiquetaUsuario_1.setBackground(new Color(59, 22, 24));
 		jpEditarPerfil.add(lblEtiquetaUsuario_1);
-		
+
 		txtfUsuario = new JTextField();
+		txtfUsuario.setFont(new Font("Dialog", Font.PLAIN, 15));
 		txtfUsuario.setBounds(233, 10, 249, 24);
 		jpEditarPerfil.add(txtfUsuario);
 		txtfUsuario.setColumns(10);
-		
+
 		JLabel lblEtiquetaNombre_1 = new JLabel("Nombre:");
 		lblEtiquetaNombre_1.setOpaque(true);
 		lblEtiquetaNombre_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -218,7 +220,7 @@ public class Perfil extends JFrame {
 		lblEtiquetaNombre_1.setBackground(new Color(59, 22, 24));
 		lblEtiquetaNombre_1.setBounds(10, 44, 197, 24);
 		jpEditarPerfil.add(lblEtiquetaNombre_1);
-		
+
 		JLabel lblEtiquetaEmail_1 = new JLabel("Email:");
 		lblEtiquetaEmail_1.setOpaque(true);
 		lblEtiquetaEmail_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -228,7 +230,7 @@ public class Perfil extends JFrame {
 		lblEtiquetaEmail_1.setBackground(new Color(59, 22, 24));
 		lblEtiquetaEmail_1.setBounds(10, 78, 197, 24);
 		jpEditarPerfil.add(lblEtiquetaEmail_1);
-		
+
 		JLabel lblEtiquetaDNI_1 = new JLabel("DNI:");
 		lblEtiquetaDNI_1.setOpaque(true);
 		lblEtiquetaDNI_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -238,31 +240,36 @@ public class Perfil extends JFrame {
 		lblEtiquetaDNI_1.setBackground(new Color(59, 22, 24));
 		lblEtiquetaDNI_1.setBounds(10, 112, 197, 24);
 		jpEditarPerfil.add(lblEtiquetaDNI_1);
-		
+
 		txtfNombre = new JTextField();
+		txtfNombre.setFont(new Font("Dialog", Font.PLAIN, 15));
 		txtfNombre.setColumns(10);
 		txtfNombre.setBounds(233, 44, 249, 24);
 		jpEditarPerfil.add(txtfNombre);
-		
+
 		txtfEmail = new JTextField();
+		txtfEmail.setFont(new Font("Dialog", Font.PLAIN, 15));
 		txtfEmail.setColumns(10);
 		txtfEmail.setBounds(233, 78, 249, 24);
 		jpEditarPerfil.add(txtfEmail);
-		
+
 		txtfDNI = new JTextField();
+		txtfDNI.setFont(new Font("Dialog", Font.PLAIN, 15));
 		txtfDNI.setColumns(10);
 		txtfDNI.setBounds(233, 112, 249, 24);
 		jpEditarPerfil.add(txtfDNI);
-		
+
 		JButton btnAplicarPerfil = new JButton("Aplicar Cambios");
+		btnAplicarPerfil.setFocusPainted(false);
 		btnAplicarPerfil.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnAplicarPerfil.setForeground(Color.WHITE);
 		btnAplicarPerfil.setBorder(new LineBorder(Color.WHITE, 2, true));
 		btnAplicarPerfil.setBounds(10, 156, 163, 21);
 		btnAplicarPerfil.setBackground(new Color(45,118,116));
 		jpEditarPerfil.add(btnAplicarPerfil);
-		
+
 		JButton btnVolverMenu = new JButton("Volver al Men\u00FA");
+		btnVolverMenu.setFocusPainted(false);
 		btnVolverMenu.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnVolverMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -276,12 +283,12 @@ public class Perfil extends JFrame {
 		btnVolverMenu.setBackground(new Color(45, 118, 116));
 		btnVolverMenu.setBounds(319, 156, 163, 21);
 		jpEditarPerfil.add(btnVolverMenu);
-		
+
 		JPanel jpCambiarContra= new JPanel();
 		jpCambiarContra.setBackground(new Color(119,55,57));
 		tbModificar.addTab("Cambiar Contraseña", null, jpCambiarContra, null);
 		jpCambiarContra.setLayout(null);
-		
+
 		JLabel lblEtiquetaContraseña = new JLabel("Contrase\u00F1a Actual");
 		lblEtiquetaContraseña.setOpaque(true);
 		lblEtiquetaContraseña.setHorizontalAlignment(SwingConstants.CENTER);
@@ -291,12 +298,13 @@ public class Perfil extends JFrame {
 		lblEtiquetaContraseña.setBackground(new Color(59, 22, 24));
 		lblEtiquetaContraseña.setBounds(10, 25, 197, 24);
 		jpCambiarContra.add(lblEtiquetaContraseña);
-		
+
 		textField = new JTextField();
+		textField.setFont(new Font("Dialog", Font.PLAIN, 15));
 		textField.setColumns(10);
 		textField.setBounds(218, 25, 249, 24);
 		jpCambiarContra.add(textField);
-		
+
 		JLabel lblEtiquetaContraseñaNueva = new JLabel("Nueva Contrase\u00F1a:\r\n");
 		lblEtiquetaContraseñaNueva.setOpaque(true);
 		lblEtiquetaContraseñaNueva.setHorizontalAlignment(SwingConstants.CENTER);
@@ -306,7 +314,7 @@ public class Perfil extends JFrame {
 		lblEtiquetaContraseñaNueva.setBackground(new Color(59, 22, 24));
 		lblEtiquetaContraseñaNueva.setBounds(10, 59, 197, 24);
 		jpCambiarContra.add(lblEtiquetaContraseñaNueva);
-		
+
 		JLabel lblNuevaContrasea = new JLabel("Nueva Contrase\u00F1a:");
 		lblNuevaContrasea.setOpaque(true);
 		lblNuevaContrasea.setHorizontalAlignment(SwingConstants.CENTER);
@@ -316,26 +324,30 @@ public class Perfil extends JFrame {
 		lblNuevaContrasea.setBackground(new Color(59, 22, 24));
 		lblNuevaContrasea.setBounds(10, 93, 197, 24);
 		jpCambiarContra.add(lblNuevaContrasea);
-		
+
 		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Dialog", Font.PLAIN, 15));
 		textField_1.setColumns(10);
 		textField_1.setBounds(218, 59, 249, 24);
 		jpCambiarContra.add(textField_1);
-		
+
 		textField_2 = new JTextField();
+		textField_2.setFont(new Font("Dialog", Font.PLAIN, 15));
 		textField_2.setColumns(10);
 		textField_2.setBounds(218, 93, 249, 24);
 		jpCambiarContra.add(textField_2);
-		
+
 		JButton btnCambiarContrasea = new JButton("Cambiar Contrase\u00F1a");
+		btnCambiarContrasea.setFocusPainted(false);
 		btnCambiarContrasea.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnCambiarContrasea.setForeground(Color.WHITE);
 		btnCambiarContrasea.setBorder(new LineBorder(Color.WHITE, 2, true));
 		btnCambiarContrasea.setBackground(new Color(45, 118, 116));
 		btnCambiarContrasea.setBounds(10, 156, 163, 21);
 		jpCambiarContra.add(btnCambiarContrasea);
-		
+
 		JButton btnVolverMenu_1 = new JButton("Volver al Men\u00FA");
+		btnVolverMenu_1.setFocusPainted(false);
 		btnVolverMenu_1.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnVolverMenu_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -349,13 +361,14 @@ public class Perfil extends JFrame {
 		btnVolverMenu_1.setBackground(new Color(45, 118, 116));
 		btnVolverMenu_1.setBounds(319, 156, 163, 21);
 		jpCambiarContra.add(btnVolverMenu_1);
-		
+
 		JPanel jpCambiarFoto = new JPanel();
 		jpCambiarFoto.setBackground(new Color(119,55,57));
 		tbModificar.addTab("Cambiar Foto de Perfil", null, jpCambiarFoto, null);
 		jpCambiarFoto.setLayout(null);
-		
+
 		JButton btnVolverMenu_1_1 = new JButton("Volver al Men\u00FA");
+		btnVolverMenu_1_1.setFocusPainted(false);
 		btnVolverMenu_1_1.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnVolverMenu_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -369,15 +382,16 @@ public class Perfil extends JFrame {
 		btnVolverMenu_1_1.setBackground(new Color(45, 118, 116));
 		btnVolverMenu_1_1.setBounds(319, 156, 163, 21);
 		jpCambiarFoto.add(btnVolverMenu_1_1);
-		
+
 		JButton btnCambiarFoto = new JButton("Cambiar Foto Perfil");
+		btnCambiarFoto.setFocusPainted(false);
 		btnCambiarFoto.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnCambiarFoto.setForeground(Color.WHITE);
 		btnCambiarFoto.setBorder(new LineBorder(Color.WHITE, 2, true));
 		btnCambiarFoto.setBackground(new Color(45, 118, 116));
 		btnCambiarFoto.setBounds(10, 156, 163, 21);
 		jpCambiarFoto.add(btnCambiarFoto);
-		
+
 		JLabel lblEtiquetaRuta = new JLabel("Ruta de la Foto");
 		lblEtiquetaRuta.setOpaque(true);
 		lblEtiquetaRuta.setHorizontalAlignment(SwingConstants.CENTER);
@@ -387,17 +401,24 @@ public class Perfil extends JFrame {
 		lblEtiquetaRuta.setBackground(new Color(59, 22, 24));
 		lblEtiquetaRuta.setBounds(10, 46, 209, 45);
 		jpCambiarFoto.add(lblEtiquetaRuta);
-		
+
 		txtfRuta = new JTextField();
+		txtfRuta.setFont(new Font("Dialog", Font.PLAIN, 15));
 		txtfRuta.setColumns(10);
 		txtfRuta.setBounds(217, 46, 265, 46);
 		jpCambiarFoto.add(txtfRuta);
-		
+
 		JFileChooser fc = new JFileChooser();
+		fc.setFileFilter(new FileNameExtensionFilter("*.JPG & *.PNG", "jpg", "png"));
 		JButton btnArchivo = new JButton("Archivos");
+		btnArchivo.setFocusPainted(false);
 		btnArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fc.showSaveDialog(btnArchivo);
+				int seleccion =fc.showSaveDialog(btnArchivo);
+				if (seleccion==JFileChooser.APPROVE_OPTION)
+					txtfRuta.setText(fc.getSelectedFile().getAbsoluteFile().toString());
+				if (seleccion==JFileChooser.CANCEL_OPTION)
+					txtfRuta.setText("");
 				
 			}
 		});
@@ -407,10 +428,10 @@ public class Perfil extends JFrame {
 		btnArchivo.setBackground(new Color(45, 118, 116));
 		btnArchivo.setBounds(319, 97, 163, 21);
 		jpCambiarFoto.add(btnArchivo);
-		
-		
-		
-				
-		
+
+
+
+
+
 	}
 }

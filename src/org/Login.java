@@ -32,9 +32,10 @@ import java.awt.Rectangle;
  */
 public class Login extends JFrame {
 	private JPanel contentPane;
-	private JTextField textField;
-	private JPasswordField passwordField;
-	private static boolean mostrar = false;
+	private static String tipoUsuario;
+	private JTextField txtfUsuario;
+	private JPasswordField pfContra;
+	private static boolean mostrar = true;
 
 	/**
 	 * Launch the application.
@@ -51,6 +52,10 @@ public class Login extends JFrame {
 		});
 	}
 
+	public static String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
 	/**
 	 * Create the frame.
 	 */
@@ -65,41 +70,49 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setResizable(false);
-		
+
 		JPanel panel = new JPanel();
 		panel.setForeground(Color.BLACK);
 		panel.setBorder(new LineBorder(Color.LIGHT_GRAY));
 		panel.setBounds(70, 55, 450, 350);
 		panel.setBackground(new Color(118,45,47));
 		contentPane.add(panel);
-		
+
 		JLabel lblNewLabel = new JLabel("Usuario:");
 		lblNewLabel.setFont(new Font("Dialog", Font.PLAIN, 15));
 		lblNewLabel.setForeground(Color.WHITE);
-		
-		textField = new JTextField();
-		
+
+		txtfUsuario = new JTextField();
+		txtfUsuario.setFont(new Font("Dialog", Font.PLAIN, 15));
+
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
 		lblContrasea.setForeground(Color.WHITE);
 		lblContrasea.setFont(new Font("Dialog", Font.PLAIN, 15));
-		
+
 		JButton btnAcceder = new JButton("Acceder");
 		btnAcceder.setFont(new Font("Dialog", Font.PLAIN, 11));
 		btnAcceder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
-				MenuAlumno menuAlumno = new MenuAlumno();
-				menuAlumno.setVisible(true);
+				if(txtfUsuario.getText().equals("Alumno")) {
+					MenuAlumno menuAlumno = new MenuAlumno();
+					menuAlumno.setVisible(true);
+					tipoUsuario=txtfUsuario.getText();
+				}else {
+					MenuProfesor menuProfesor = new MenuProfesor();
+					menuProfesor.setVisible(true);
+					tipoUsuario=txtfUsuario.getText();
+				} 
 			}
 		});
-		
+
 		JTextPane txtpntodavaNoTienes = new JTextPane();
 		txtpntodavaNoTienes.setBackground(new Color(118,45,47));
 		txtpntodavaNoTienes.setEditable(false);
 		txtpntodavaNoTienes.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtpntodavaNoTienes.setForeground(Color.WHITE);
 		txtpntodavaNoTienes.setText("\u00BFTodav\u00EDa no tienes cuenta?");
-		
+
 		JLabel lblRegistreseAqu = new JLabel();
 		lblRegistreseAqu.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		//"Registrese Aqu\u00ED
@@ -112,10 +125,11 @@ public class Login extends JFrame {
 		});
 		lblRegistreseAqu.setForeground(new Color(12,124,186));
 		lblRegistreseAqu.setText("<html>Registrese <u>Aqui</u></html>");
-		
-		passwordField = new JPasswordField();
-		passwordField.setEchoChar('*');
-		
+
+		pfContra = new JPasswordField();
+		pfContra.setFont(new Font("Dialog", Font.PLAIN, 15));
+		pfContra.setEchoChar('*');
+
 		JLabel lblImg = new JLabel("");
 		lblImg.addMouseListener(new MouseAdapter() {
 			@Override
@@ -123,12 +137,12 @@ public class Login extends JFrame {
 				if(mostrar) {
 					Icon icono = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImg.setIcon(icono);
-					passwordField.setEchoChar((char)0);
+					pfContra.setEchoChar((char)0);
 					mostrar = false;
 				}else {
 					Icon icono = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImg.setIcon(icono);
-					passwordField.setEchoChar('*');
+					pfContra.setEchoChar('*');
 					mostrar = true;
 				}
 			}
@@ -139,61 +153,61 @@ public class Login extends JFrame {
 		lblImg.setForeground(Color.WHITE);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
+				gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(btnAcceder, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
-							.addGap(122))
 						.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-							.addGroup(gl_panel.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(lblImg, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(41)
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, 364, GroupLayout.PREFERRED_SIZE)))
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(41)
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addComponent(passwordField, GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
-										.addComponent(lblContrasea, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)))
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(129)
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addContainerGap()
+										.addComponent(btnAcceder, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
+										.addGap(122))
+								.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
 										.addGroup(gl_panel.createSequentialGroup()
-											.addGap(40)
-											.addComponent(lblRegistreseAqu, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-										.addComponent(txtpntodavaNoTienes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))))
-					.addGap(138))
-		);
+												.addContainerGap()
+												.addComponent(lblImg, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_panel.createSequentialGroup()
+														.addGap(41)
+														.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+																.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+																.addComponent(txtfUsuario, GroupLayout.PREFERRED_SIZE, 364, GroupLayout.PREFERRED_SIZE)))
+												.addGroup(gl_panel.createSequentialGroup()
+														.addGap(41)
+														.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+																.addComponent(pfContra, GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+																.addComponent(lblContrasea, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)))
+												.addGroup(gl_panel.createSequentialGroup()
+														.addGap(129)
+														.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+																.addGroup(gl_panel.createSequentialGroup()
+																		.addGap(40)
+																		.addComponent(lblRegistreseAqu, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+																.addComponent(txtpntodavaNoTienes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))))
+						.addGap(138))
+				);
 		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
+				gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(54)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-							.addGap(36)
-							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblContrasea, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblImg, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-							.addGap(38)
-							.addComponent(txtpntodavaNoTienes, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(254)
-							.addComponent(lblRegistreseAqu)))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnAcceder, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(39, Short.MAX_VALUE))
-		);
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup()
+										.addGap(54)
+										.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(txtfUsuario, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+										.addGap(36)
+										.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+												.addComponent(lblContrasea, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+												.addComponent(lblImg, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(pfContra, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+										.addGap(38)
+										.addComponent(txtpntodavaNoTienes, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_panel.createSequentialGroup()
+										.addGap(254)
+										.addComponent(lblRegistreseAqu)))
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(btnAcceder, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(39, Short.MAX_VALUE))
+				);
 		panel.setLayout(gl_panel);
 	}
 }

@@ -12,7 +12,11 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
+/**
+ * Clase para mostrar las calificaciones del alumno por asignatura
+ * @author Jesus Reyes
+ * @version 1.0
+ */
 public class Calificaciones extends JFrame {
 
 	private JPanel contentPane;

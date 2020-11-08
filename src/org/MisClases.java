@@ -12,7 +12,11 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
-
+/**
+ * Clase para ver el listado de los alumnos por curso y asignarlos
+ * @author Jesus Reyes
+ * @version 1.0
+ */
 public class MisClases extends JFrame {
 
 	private JPanel contentPane;

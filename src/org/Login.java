@@ -47,7 +47,7 @@ public class Login extends JFrame {
 			public void run() {
 				try {
 					Login login = new Login();
-					
+					Perfil per = new Perfil();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -68,6 +68,7 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setResizable(false);
 		
 		JPanel panel = new JPanel();
 		panel.setForeground(Color.BLACK);

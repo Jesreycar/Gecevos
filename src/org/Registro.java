@@ -35,6 +35,7 @@ public class Registro extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setResizable(false);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);

@@ -1,16 +1,24 @@
 package org;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.SpringLayout;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
-import javax.swing.JTable;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Rectangle;
+import javax.swing.JTree;
+import javax.swing.SwingConstants;
+import javax.swing.JToggleButton;
+import javax.swing.JTabbedPane;
 /**
- * Esta clase es el perfil del usuario logueado
+ * Esta clase es el perfil del usuario logueado, tambien se podra modificar los datos de este usuario
  * @author Juan Antonio Escribano Díaz
  * @version 1.0
  */
@@ -26,18 +34,19 @@ public class Perfil extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
 		contentPane = new JPanel();
+		contentPane.setForeground(Color.WHITE);
+		contentPane.setFont(new Font("Dialog", Font.PLAIN, 15));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(118, 45, 47));
 		setContentPane(contentPane);
-		SpringLayout sl_contentPane = new SpringLayout();
-		contentPane.setLayout(sl_contentPane);
+		contentPane.setLayout(null);
 		
 		JLabel lblImg = new JLabel("img");
+		lblImg.setBounds(new Rectangle(33, 20, 165, 136));
+		Icon icono = new ImageIcon(new ImageIcon("img/ImgPerfil.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
+		lblImg.setIcon(icono);
+		lblImg.setBounds(33, 20, 165, 136);
 		lblImg.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblImg, 15, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblImg, 15, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblImg, 158, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblImg, 162, SpringLayout.WEST, contentPane);
 		contentPane.add(lblImg);
 
 		/*
@@ -45,44 +54,128 @@ public class Perfil extends JFrame {
 		 * los demas son labels que se adaptaran a los dartos del usuario.
 		 */
 		JLabel lblEtiquetaUsuario = new JLabel("Usuario:");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblEtiquetaUsuario, 48, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblEtiquetaUsuario, 31, SpringLayout.EAST, lblImg);
+		lblEtiquetaUsuario.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEtiquetaUsuario.setForeground(Color.WHITE);
+		lblEtiquetaUsuario.setBackground(new Color(59,22,24));
+		lblEtiquetaUsuario.setOpaque(true);
+		lblEtiquetaUsuario.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblEtiquetaUsuario.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEtiquetaUsuario.setBounds(232, 20, 150, 50);
 		contentPane.add(lblEtiquetaUsuario);
 		
 
 		JLabel lblUsuario= new JLabel("\"Nombre de Usuario\"");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblUsuario, 48, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblUsuario, 31, SpringLayout.EAST, lblImg);
+		lblUsuario.setOpaque(true);
+		lblUsuario.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUsuario.setForeground(Color.WHITE);
+		lblUsuario.setBackground(new Color(59,22,24));
+		lblUsuario.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblUsuario.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblUsuario.setBounds(380, 20, 150, 50);
+		lblUsuario.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		contentPane.add(lblUsuario);
 		
 		JLabel lblEtiquetaNombre = new JLabel("Nombre:");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblEtiquetaNombre, 48, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblEtiquetaNombre, 31, SpringLayout.EAST, lblImg);
+		lblEtiquetaNombre.setOpaque(true);
+		lblEtiquetaNombre.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEtiquetaNombre.setForeground(Color.WHITE);
+		lblEtiquetaNombre.setBackground(new Color(59,22,24));
+		lblEtiquetaNombre.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblEtiquetaNombre.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEtiquetaNombre.setBounds(232, 67, 150, 50);
 		contentPane.add(lblEtiquetaNombre);
 
 		JLabel lblNombre = new JLabel("\"Nombre\"");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNombre, 48, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNombre, 31, SpringLayout.EAST, lblImg);
+		lblNombre.setOpaque(true);
+		lblNombre.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNombre.setForeground(Color.WHITE);
+		lblNombre.setBackground(new Color(59,22,24));
+		lblNombre.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblNombre.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblNombre.setBounds(380, 67, 150, 50);
 		contentPane.add(lblNombre);
 		
 		JLabel lblEtiquetaApellidos = new JLabel("Apellidos:");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblEtiquetaApellidos, 48, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblEtiquetaApellidos, 31, SpringLayout.EAST, lblImg);
+		lblEtiquetaApellidos.setOpaque(true);
+		lblEtiquetaApellidos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEtiquetaApellidos.setForeground(Color.WHITE);
+		lblEtiquetaApellidos.setBackground(new Color(59,22,24));
+		lblEtiquetaApellidos.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblEtiquetaApellidos.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEtiquetaApellidos.setBounds(232, 115, 150, 50);
+		lblEtiquetaApellidos.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		lblEtiquetaApellidos.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		contentPane.add(lblEtiquetaApellidos);
 		
 		JLabel lblApellidos = new JLabel("\"Apellidos\"");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblApellidos, 48, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblApellidos, 31, SpringLayout.EAST, lblImg);
+		lblApellidos.setOpaque(true);
+		lblApellidos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblApellidos.setForeground(Color.WHITE);
+		lblApellidos.setBackground(new Color(59,22,24));
+		lblApellidos.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblApellidos.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblApellidos.setBounds(380, 115, 150, 50);
 		contentPane.add(lblApellidos);
 		
 		JLabel lblEtiquetaEmail = new JLabel("Email:");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblEtiquetaEmail, 48, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblEtiquetaEmail, 31, SpringLayout.EAST, lblImg);
-		contentPane.add(lblEtiquetaApellidos);
+		lblEtiquetaEmail.setOpaque(true);
+		lblEtiquetaEmail.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEtiquetaEmail.setForeground(Color.WHITE);
+		lblEtiquetaEmail.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEtiquetaEmail.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblEtiquetaEmail.setBackground(new Color(59, 22, 24));
+		lblEtiquetaEmail.setBounds(33, 164, 250, 40);
+		contentPane.add(lblEtiquetaEmail);
 		
 		JLabel lblEmail = new JLabel("\"Email\"");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblEmail, 48, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblEmail, 31, SpringLayout.EAST, lblImg);
-		contentPane.add(lblApellidos);
+		lblEmail.setOpaque(true);
+		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEmail.setForeground(Color.WHITE);
+		lblEmail.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEmail.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblEmail.setBackground(new Color(59, 22, 24));
+		lblEmail.setBounds(280, 164, 250, 40);
+		contentPane.add(lblEmail);
+		
+		JLabel lblEtiquetaDNI = new JLabel("DNI:");
+		lblEtiquetaDNI.setOpaque(true);
+		lblEtiquetaDNI.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEtiquetaDNI.setForeground(Color.WHITE);
+		lblEtiquetaDNI.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEtiquetaDNI.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblEtiquetaDNI.setBackground(new Color(59, 22, 24));
+		lblEtiquetaDNI.setBounds(33, 203, 250, 40);
+		contentPane.add(lblEtiquetaDNI);
+
+		JLabel lblDNI = new JLabel("\"DNI\"");
+		lblDNI.setOpaque(true);
+		lblDNI.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDNI.setForeground(Color.WHITE);
+		lblDNI.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblDNI.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblDNI.setBackground(new Color(59, 22, 24));
+		lblDNI.setBounds(280, 203, 250, 40);
+		contentPane.add(lblDNI);
+		
+		JTabbedPane tbModificar = new JTabbedPane(JTabbedPane.TOP);
+		tbModificar.setForeground(Color.white);
+		tbModificar.setFont(new Font("Dialog", Font.PLAIN, 15));
+		tbModificar.setBackground(new Color(118, 45, 47));
+		tbModificar.setBounds(33, 253, 497, 200);
+		contentPane.add(tbModificar);
+		
+		JPanel jpEditarPerfil = new JPanel();
+		jpEditarPerfil.setBackground(new Color(118, 45, 47));
+		tbModificar.addTab("New tab", null, jpEditarPerfil, null);
+		
+		JPanel jpCambiarContra= new JPanel();
+		jpCambiarContra.setBackground(new Color(118, 45, 47));
+		tbModificar.addTab("New tab", null, jpCambiarContra, null);
+		
+		JPanel jpCambiarFoto = new JPanel();
+		jpCambiarFoto.setBackground(new Color(118, 45, 47));
+		tbModificar.addTab("New tab", null, jpCambiarFoto, null);
+		
+		
 	}
 }

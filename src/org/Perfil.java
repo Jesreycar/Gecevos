@@ -39,7 +39,7 @@ public class Perfil extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txtfRuta;
 
 	/**
 	 * Create the frame.
@@ -378,26 +378,27 @@ public class Perfil extends JFrame {
 		btnCambiarFoto.setBounds(10, 156, 163, 21);
 		jpCambiarFoto.add(btnCambiarFoto);
 		
-		JLabel lblEtiquetaContraseña_1 = new JLabel("Contrase\u00F1a Actual");
-		lblEtiquetaContraseña_1.setOpaque(true);
-		lblEtiquetaContraseña_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEtiquetaContraseña_1.setForeground(Color.WHITE);
-		lblEtiquetaContraseña_1.setFont(new Font("Dialog", Font.PLAIN, 15));
-		lblEtiquetaContraseña_1.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
-		lblEtiquetaContraseña_1.setBackground(new Color(59, 22, 24));
-		lblEtiquetaContraseña_1.setBounds(10, 46, 209, 45);
-		jpCambiarFoto.add(lblEtiquetaContraseña_1);
+		JLabel lblEtiquetaRuta = new JLabel("Ruta de la Foto");
+		lblEtiquetaRuta.setOpaque(true);
+		lblEtiquetaRuta.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEtiquetaRuta.setForeground(Color.WHITE);
+		lblEtiquetaRuta.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEtiquetaRuta.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblEtiquetaRuta.setBackground(new Color(59, 22, 24));
+		lblEtiquetaRuta.setBounds(10, 46, 209, 45);
+		jpCambiarFoto.add(lblEtiquetaRuta);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(217, 46, 265, 46);
-		jpCambiarFoto.add(textField_3);
+		txtfRuta = new JTextField();
+		txtfRuta.setColumns(10);
+		txtfRuta.setBounds(217, 46, 265, 46);
+		jpCambiarFoto.add(txtfRuta);
 		
 		JFileChooser fc = new JFileChooser();
 		JButton btnArchivo = new JButton("Archivos");
 		btnArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fc.showSaveDialog(btnArchivo);
+				
 			}
 		});
 		btnArchivo.setFont(new Font("Dialog", Font.PLAIN, 15));

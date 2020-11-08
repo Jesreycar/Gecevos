@@ -149,6 +149,13 @@ public class MenuAlumno extends JFrame {
 		contentPane.add(btnPartes);
 		
 		JButton btnCalificaciones = new JButton("Calificaciones");
+		btnCalificaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Calificaciones calificacion = new Calificaciones();
+				calificacion.setVisible(true);
+			}
+		});
 		btnCalificaciones.setFocusPainted(false);
 		btnCalificaciones.setBorder(new LineBorder(new Color(229,229,229), 2));
 		btnCalificaciones.setForeground(Color.WHITE);
@@ -158,6 +165,12 @@ public class MenuAlumno extends JFrame {
 		contentPane.add(btnCalificaciones);
 		
 		JButton btnHorario = new JButton("Horario");
+		btnHorario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				
+			}
+		});
 		btnHorario.setFocusPainted(false);
 		btnHorario.setBorder(new LineBorder(new Color(229,229,229), 2));
 		btnHorario.setForeground(Color.WHITE);

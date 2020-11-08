@@ -7,6 +7,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JScrollBar;
 import javax.swing.JTextArea;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextPane;
@@ -23,6 +24,8 @@ import javax.swing.JTable;
 import javax.swing.JSlider;
 import javax.swing.JList;
 import java.awt.ScrollPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Choice;
 import java.awt.Panel;
 import java.awt.Button;
@@ -39,16 +42,17 @@ public class PartesAlumno extends JFrame {
 	 * Create the frame.
 	 */
 	public PartesAlumno() {
+		setTitle("Gecevos-PartesAlumno");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
-		
+
 		//Panel principal
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(118, 45, 47));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		
+
 		//Labels de información
 		JLabel lblNombreTut = new JLabel("Nombre Tutor", SwingConstants.CENTER);
 		lblNombreTut.setBorder(new LineBorder(new Color(229,229,229), 2));
@@ -58,16 +62,16 @@ public class PartesAlumno extends JFrame {
 		lblNombreTut.setBackground(new Color(59, 22, 24));
 		lblNombreTut.setBounds(27, 26, 147, 38);
 		contentPane.add(lblNombreTut);
-		
+
 		JLabel lblnombre = new JLabel("\"Nombre\"", SwingConstants.CENTER);
 		lblnombre.setOpaque(true);
 		lblnombre.setForeground(Color.WHITE);
 		lblnombre.setFont(new Font("Dialog", Font.PLAIN, 15));
 		lblnombre.setBorder(new LineBorder(new Color(229,229,229), 2));
 		lblnombre.setBackground(new Color(59, 22, 24));
-		lblnombre.setBounds(173, 26, 366, 38);
+		lblnombre.setBounds(173, 26, 379, 38);
 		contentPane.add(lblnombre);
-		
+
 		JLabel lblApellidosTutor = new JLabel("Apellidos Tutor", SwingConstants.CENTER);
 		lblApellidosTutor.setOpaque(true);
 		lblApellidosTutor.setForeground(Color.WHITE);
@@ -76,7 +80,7 @@ public class PartesAlumno extends JFrame {
 		lblApellidosTutor.setBackground(new Color(59, 22, 24));
 		lblApellidosTutor.setBounds(27, 63, 147, 38);
 		contentPane.add(lblApellidosTutor);
-		
+
 		JLabel lblCurso = new JLabel("Curso", SwingConstants.CENTER);
 		lblCurso.setOpaque(true);
 		lblCurso.setForeground(Color.WHITE);
@@ -85,32 +89,48 @@ public class PartesAlumno extends JFrame {
 		lblCurso.setBackground(new Color(59, 22, 24));
 		lblCurso.setBounds(27, 100, 147, 38);
 		contentPane.add(lblCurso);
-		
+
 		JLabel lblapellidos = new JLabel("\"Apellidos\"", SwingConstants.CENTER);
 		lblapellidos.setOpaque(true);
 		lblapellidos.setForeground(Color.WHITE);
 		lblapellidos.setFont(new Font("Dialog", Font.PLAIN, 15));
 		lblapellidos.setBorder(new LineBorder(new Color(229,229,229), 2));
 		lblapellidos.setBackground(new Color(59, 22, 24));
-		lblapellidos.setBounds(173, 63, 366, 38);
+		lblapellidos.setBounds(173, 63, 379, 38);
 		contentPane.add(lblapellidos);
-		
+
 		JLabel lblcurso = new JLabel("\"Curso\"", SwingConstants.CENTER);
 		lblcurso.setOpaque(true);
 		lblcurso.setForeground(Color.WHITE);
 		lblcurso.setFont(new Font("Dialog", Font.PLAIN, 15));
 		lblcurso.setBorder(new LineBorder(new Color(229,229,229), 2));
 		lblcurso.setBackground(new Color(59, 22, 24));
-		lblcurso.setBounds(173, 100, 366, 38);
+		lblcurso.setBounds(173, 100, 379, 38);
 		contentPane.add(lblcurso);
-		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(567, 0, 17, 461);
-		contentPane.add(scrollBar);
-		
+
+		//Panel scroll para mostar las listas de partes
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(27, 185, 512, 265);
+		scrollPane.setBorder(new LineBorder(Color.BLACK, 2));
+		scrollPane.setBackground(new Color(118, 45, 47));
+		scrollPane.getViewport().setBackground(new Color(118, 45, 47));
+		scrollPane.setBounds(27, 149, 525, 265);
 		contentPane.add(scrollPane);
-		
+
+		//Boton volver al menu del usuario
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				MenuAlumno menuAlumno = new MenuAlumno();
+				menuAlumno.setVisible(true);
+			}
+		});
+		btnVolver.setForeground(Color.WHITE);
+		btnVolver.setFont(new Font("Dialog", Font.PLAIN, 15));
+		btnVolver.setFocusPainted(false);
+		btnVolver.setBorder(new LineBorder(new Color(229,229,229), 2));
+		btnVolver.setBackground(new Color(45, 118, 116));
+		btnVolver.setBounds(215, 425, 132, 25);
+		contentPane.add(btnVolver);
 	}
 }

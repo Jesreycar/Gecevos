@@ -10,8 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import java.awt.Component;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 /**
  * Esta clase contiene el menú con todas las opciones del profesorado
  * @author Juan Antonio Escribano Díaz
@@ -34,6 +40,12 @@ public class MenuProfesor extends JFrame {
 		contentPane.setBackground(new Color(118, 45, 47));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		separator.setForeground(Color.WHITE);
+		separator.setBounds(310, 10, 2, 421);
+		contentPane.add(separator);
 
 		//Barra de menús
 		JMenuBar menu = new JMenuBar();
@@ -47,7 +59,17 @@ public class MenuProfesor extends JFrame {
 		mnOpciones.setForeground(Color.WHITE);
 		mnOpciones.setBackground(new Color(72,75,156));
 		menu.add(mnOpciones);
-
+		JMenuItem mntmRecordatorio = new JMenuItem("Cerrar Sesi\u00F3n");
+		mntmRecordatorio.setFont(new Font("Dialog", Font.PLAIN, 12));
+		mntmRecordatorio.setForeground(Color.WHITE);
+		mntmRecordatorio.setBackground(new Color(72,75,156));
+		mnOpciones.add(mntmRecordatorio);
+		mntmRecordatorio.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar Sesi\u00F3n");
 		mntmCerrarSesin.setFont(new Font("Dialog", Font.PLAIN, 12));
 		mntmCerrarSesin.setForeground(Color.WHITE);
@@ -80,6 +102,19 @@ public class MenuProfesor extends JFrame {
 		mnAyuda.setForeground(Color.WHITE);
 		mnAyuda.setFont(new Font("Dialog", Font.BOLD, 12));
 		menu.add(mnAyuda);
+		
+		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil.setFocusPainted(false);
+		btnPerfil.setBorder(new LineBorder(new Color(229,229,229), 2));
+		btnPerfil.setForeground(Color.WHITE);
+		btnPerfil.setBackground(new Color(45,118,116));
+		btnPerfil.setFont(new Font("Dialog", Font.PLAIN, 11));
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnPerfil.setBounds(20, 30, 249, 45);
+		contentPane.add(btnPerfil);
 
 
 	}

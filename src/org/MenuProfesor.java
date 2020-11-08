@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -23,6 +24,7 @@ import javax.swing.Box;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
@@ -201,11 +203,21 @@ public class MenuProfesor extends JFrame {
 		lblNombreCompleto.setFont(new Font("Dialog", Font.PLAIN, 15));
 		lblNombreCompleto.setBounds(314, 56, 128, 20);
 		contentPane.add(lblNombreCompleto);
+		JCheckBox jcHecho = new JCheckBox();
+		jcHecho.setSize(20, 20);
 		
 		table = new JTable();
 		table.setBackground(Color.WHITE);
 		table.setFont(new Font("Dialog", Font.PLAIN, 15));
 		table.setBounds(314, 125, 262, 284);
+		table.setModel(new DefaultTableModel(
+				new Object[][] {
+					{"Hablar con el jefe de departamento"},
+					{"Explicar los arrays en 1º DAM"},
+				},
+				new String[] {
+						"Recordatorio", "Hecho"
+				}));
 		contentPane.add(table);
 	}
 }

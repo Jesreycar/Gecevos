@@ -12,6 +12,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
+import javax.swing.JLabel;
 
 public class MenuAlumno extends JFrame {
 
@@ -30,18 +31,26 @@ public class MenuAlumno extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		
+		JLabel lblAsd = new JLabel("asd");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(83)
+							.addComponent(lblAsd)))
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(420, Short.MAX_VALUE))
+					.addGap(33)
+					.addComponent(lblAsd)
+					.addContainerGap(373, Short.MAX_VALUE))
 		);
 		
 		JMenu mnNewMenu_1 = new JMenu("Opciones");

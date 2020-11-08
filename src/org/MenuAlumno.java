@@ -168,7 +168,8 @@ public class MenuAlumno extends JFrame {
 		btnHorario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				
+				Horario horario = new Horario();
+				horario.setVisible(true);
 			}
 		});
 		btnHorario.setFocusPainted(false);

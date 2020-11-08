@@ -3,16 +3,26 @@ package org;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+import java.awt.Insets;
+import javax.swing.JSeparator;
+import java.awt.Component;
+import javax.swing.Box;
+import javax.swing.JDesktopPane;
+import javax.swing.JToolBar;
 
 public class MenuAlumno extends JFrame {
 
@@ -25,42 +35,51 @@ public class MenuAlumno extends JFrame {
 		setTitle("Gecevos-Alumno");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorderPainted(false);
+		menuBar.setBackground(new Color(72,75,156));
+		setJMenuBar(menuBar);
+		
+		JMenu mnOpciones = new JMenu("Opciones");
+		menuBar.add(mnOpciones);
+		
+		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar Sesi\u00F3n");
+		mnOpciones.add(mntmCerrarSesin);
+		
+		JMenuItem mntmCerrarVentana = new JMenuItem("Cerrar Ventana");
+		mnOpciones.add(mntmCerrarVentana);
+		
+		JMenuItem mntmAyuda = new JMenuItem("Ayuda");
+		menuBar.add(mntmAyuda);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(118, 45, 47));
 		setContentPane(contentPane);
 		
-		JPanel panel = new JPanel();
+		JSeparator separator = new JSeparator();
 		
-		JLabel lblAsd = new JLabel("asd");
+		JLabel lblImg = new JLabel("");
+		Icon icono = new ImageIcon(new ImageIcon("img/ImgPerfil.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(83)
-							.addComponent(lblAsd)))
+						.addComponent(lblImg, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
+						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-					.addGap(33)
-					.addComponent(lblAsd)
-					.addContainerGap(373, Short.MAX_VALUE))
+					.addContainerGap()
+					.addComponent(lblImg, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 4, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(287, Short.MAX_VALUE))
 		);
-		
-		JMenu mnNewMenu_1 = new JMenu("Opciones");
-		mnNewMenu_1.setBounds(10, 5, 99, 22);
-		panel.setLayout(null);
-		panel.add(mnNewMenu_1);
-		
-		JMenuItem mntmAyuda = new JMenuItem("Ayuda");
-		mntmAyuda.setBounds(119, 5, 129, 22);
-		panel.add(mntmAyuda);
 		contentPane.setLayout(gl_contentPane);
 	}
 }

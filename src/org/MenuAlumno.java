@@ -71,6 +71,7 @@ public class MenuAlumno extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(118, 45, 47));
 		contentPane.setLayout(null);
+		setResizable(false);
 		setContentPane(contentPane);
 		
 		//Botones usuario

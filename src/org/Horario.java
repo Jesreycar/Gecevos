@@ -33,6 +33,7 @@ public class Horario extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(118, 45, 47));
 		contentPane.setLayout(null);
+		setResizable(false);
 		setContentPane(contentPane);
 
 		//Label titulo horario de clase

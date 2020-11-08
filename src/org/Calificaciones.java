@@ -29,6 +29,7 @@ public class Calificaciones extends JFrame {
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		contentPane.setBackground(new Color(118, 45, 47));
 		contentPane.setLayout(null);
+		setResizable(false);
 		setContentPane(contentPane);
 		
 		//Botones trimestres

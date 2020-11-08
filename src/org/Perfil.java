@@ -9,7 +9,11 @@ import javax.swing.SpringLayout;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 import javax.swing.JTable;
-
+/**
+ * Esta clase es el perfil del usuario logueado
+ * @author Juan Antonio Escribano Díaz
+ * @version 1.0
+ */
 public class Perfil extends JFrame {
 
 	private JPanel contentPane;

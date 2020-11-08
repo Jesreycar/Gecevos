@@ -29,6 +29,8 @@ import javax.swing.ImageIcon;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JPasswordField;
 import java.awt.Rectangle;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 /**
  * 
  * @author Jesus Reyes
@@ -212,6 +214,45 @@ public class Login extends JFrame {
 						.addComponent(btnAcceder, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(39, Short.MAX_VALUE))
 				);
+		/*
+		 * Eventos para leer el enter
+		 */
 		panel.setLayout(gl_panel);
+		txtfUsuario.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (KeyEvent.VK_ENTER==e.getExtendedKeyCode()) {
+					setVisible(false);
+					if(txtfUsuario.getText().equals("Alumno")) {
+						MenuAlumno menuAlumno = new MenuAlumno();
+						menuAlumno.setVisible(true);
+						tipoUsuario=txtfUsuario.getText();
+					}else if (txtfUsuario.getText().equals("Profesor")){
+						MenuProfesor menuProfesor = new MenuProfesor();
+						menuProfesor.setVisible(true);
+						tipoUsuario=txtfUsuario.getText();
+					} else JOptionPane.showMessageDialog(new Login(), "Por favor escriba \"Profesor\" o \"Alumno\" como nombre de usuario");
+				
+				}
+			}
+		});
+		pfContra.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (KeyEvent.VK_ENTER==e.getExtendedKeyCode()) {
+					setVisible(false);
+					if(txtfUsuario.getText().equals("Alumno")) {
+						MenuAlumno menuAlumno = new MenuAlumno();
+						menuAlumno.setVisible(true);
+						tipoUsuario=txtfUsuario.getText();
+					}else if (txtfUsuario.getText().equals("Profesor")){
+						MenuProfesor menuProfesor = new MenuProfesor();
+						menuProfesor.setVisible(true);
+						tipoUsuario=txtfUsuario.getText();
+					} else JOptionPane.showMessageDialog(new Login(), "Por favor escriba \"Profesor\" o \"Alumno\" como nombre de usuario");
+				
+				}
+			}
+		});
 	}
 }

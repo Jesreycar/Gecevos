@@ -59,7 +59,7 @@ public class Perfil extends JFrame {
 		setTitle("Perfil");
 
 		JLabel lblImg = new JLabel("img");
-		lblImg.setBounds(new Rectangle(33, 20, 165, 136));
+		lblImg.setBounds(new Rectangle(33, 20, 165, 104));
 		Icon icono = new ImageIcon(new ImageIcon("img/ImgPerfil.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_REPLICATE));
 		lblImg.setIcon(icono);
 		lblImg.setBounds(43, 21, 165, 104);

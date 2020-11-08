@@ -5,27 +5,19 @@ import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JSeparator;
 import javax.swing.JButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Rectangle;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
-import java.awt.Button;
-import java.awt.Component;
-import javax.swing.Box;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import java.awt.Cursor;
 /**
  * Menu principal para alumnos
  * @author Jesus Reyes
@@ -78,12 +70,13 @@ public class MenuAlumno extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(118, 45, 47));
+		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
 		//Botones usuario
 		JButton btnPerfil = new JButton("Perfil");
 		btnPerfil.setFocusPainted(false);
-		btnPerfil.setBorder(new LineBorder(new Color(255, 255, 255), 2));
+		btnPerfil.setBorder(new LineBorder(new Color(229,229,229), 2));
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBackground(new Color(45,118,116));
 		btnPerfil.addActionListener(new ActionListener() {
@@ -94,10 +87,11 @@ public class MenuAlumno extends JFrame {
 		});
 		btnPerfil.setFont(new Font("Dialog", Font.PLAIN, 11));
 		btnPerfil.setBounds(332, 62, 104, 29);
+		contentPane.add(btnPerfil);
 		
 		JButton btnCerrarSesin = new JButton("Cerrar Sesi\u00F3n");
 		btnCerrarSesin.setFocusPainted(false);
-		btnCerrarSesin.setBorder(new LineBorder(new Color(255, 255, 255), 2));
+		btnCerrarSesin.setBorder(new LineBorder(new Color(229,229,229), 2));
 		btnCerrarSesin.setForeground(Color.WHITE);
 		btnCerrarSesin.setBackground(new Color(45,118,116));
 		btnCerrarSesin.addActionListener(new ActionListener() {
@@ -108,6 +102,7 @@ public class MenuAlumno extends JFrame {
 		});
 		btnCerrarSesin.setFont(new Font("Dialog", Font.PLAIN, 11));
 		btnCerrarSesin.setBounds(458, 62, 104, 29);
+		contentPane.add(btnCerrarSesin);
 		
 		//Perfil Usuario
 		JLabel lblNombre = new JLabel("Nombre Completo");
@@ -121,16 +116,15 @@ public class MenuAlumno extends JFrame {
 		lblCurso.setForeground(Color.WHITE);
 		
 		JLabel lblImg = new JLabel("");
-		lblImg.setBorder(new LineBorder(Color.WHITE, 2));
+		lblImg.setBorder(new LineBorder(new Color(229,229,229), 2));
 		lblImg.setBounds(new Rectangle(15, 26, 128, 100));
 		Icon icono = new ImageIcon(new ImageIcon("img/ImgPerfil.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_DEFAULT));
-		contentPane.setLayout(null);
+		
 		lblImg.setIcon(icono);
 		contentPane.add(lblImg);
 		contentPane.add(lblNombre);
 		contentPane.add(lblCurso);
-		contentPane.add(btnCerrarSesin);
-		contentPane.add(btnPerfil);
+		
 		
 		//Seàrador
 		JSeparator separator = new JSeparator();
@@ -140,12 +134,15 @@ public class MenuAlumno extends JFrame {
 		//Menu Usuario
 		JButton btnPartes = new JButton("Partes");
 		btnPartes.setFocusPainted(false);
-		btnPartes.setBorder(new LineBorder(new Color(255, 255, 255), 2));
+		btnPartes.setBorder(new LineBorder(new Color(229,229,229), 2));
 		btnPartes.setForeground(Color.WHITE);
 		btnPartes.setBackground(new Color(45,118,116));
 		btnPartes.setFont(new Font("Dialog", Font.PLAIN, 11));
 		btnPartes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				PartesAlumno partesAlumno = new PartesAlumno();
+				partesAlumno.setVisible(true);
 			}
 		});
 		btnPartes.setBounds(72, 184, 440, 45);
@@ -153,7 +150,7 @@ public class MenuAlumno extends JFrame {
 		
 		JButton btnCalificaciones = new JButton("Calificaciones");
 		btnCalificaciones.setFocusPainted(false);
-		btnCalificaciones.setBorder(new LineBorder(new Color(255, 255, 255), 2));
+		btnCalificaciones.setBorder(new LineBorder(new Color(229,229,229), 2));
 		btnCalificaciones.setForeground(Color.WHITE);
 		btnCalificaciones.setBackground(new Color(45,118,116));
 		btnCalificaciones.setFont(new Font("Dialog", Font.PLAIN, 11));
@@ -162,7 +159,7 @@ public class MenuAlumno extends JFrame {
 		
 		JButton btnHorario = new JButton("Horario");
 		btnHorario.setFocusPainted(false);
-		btnHorario.setBorder(new LineBorder(new Color(255, 255, 255), 2));
+		btnHorario.setBorder(new LineBorder(new Color(229,229,229), 2));
 		btnHorario.setForeground(Color.WHITE);
 		btnHorario.setBackground(new Color(45,118,116));
 		btnHorario.setFont(new Font("Dialog", Font.PLAIN, 11));

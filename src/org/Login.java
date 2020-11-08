@@ -51,7 +51,7 @@ public class Login extends JFrame {
 			public void run() {
 				try {
 					Login login = new Login();
-					Perfil per = new Perfil();
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

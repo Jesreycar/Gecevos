@@ -273,9 +273,14 @@ public class Perfil extends JFrame {
 		btnVolverMenu.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnVolverMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuAlumno menu = new MenuAlumno();
-				menu.setVisible(true);
 				setVisible(false);
+				if (Login.getTipoUsuario().equals("Alumno")) {
+					MenuAlumno menu = new MenuAlumno();
+					menu.setVisible(true);					
+				}else {
+					MenuProfesor menu = new MenuProfesor();
+					menu.setVisible(true);
+				}
 			}
 		});
 		btnVolverMenu.setForeground(Color.WHITE);

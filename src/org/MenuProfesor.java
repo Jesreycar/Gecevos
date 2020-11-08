@@ -189,7 +189,6 @@ public class MenuProfesor extends JFrame {
 		btnCerrarSesion.setBounds(24, 290, 249, 45);
 		contentPane.add(btnCerrarSesion);
 		
-
 		JLabel lblImg = new JLabel("img");
 		lblImg.setBounds(new Rectangle(33, 20, 124, 105));
 		Icon icono = new ImageIcon(new ImageIcon("img/ImgPerfil.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_REPLICATE));

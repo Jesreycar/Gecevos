@@ -32,7 +32,11 @@ import javax.swing.ImageIcon;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JPasswordField;
 import java.awt.Rectangle;
-
+/**
+ * 
+ * @author Jesus Reyes
+ * @version 1.0
+ */
 public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
@@ -47,8 +51,7 @@ public class Login extends JFrame {
 			public void run() {
 				try {
 					Login login = new Login();
-					MenuAlumno menuAlumno = new MenuAlumno();
-					menuAlumno.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -88,8 +91,12 @@ public class Login extends JFrame {
 		lblContrasea.setFont(new Font("Dialog", Font.PLAIN, 15));
 		
 		JButton btnAcceder = new JButton("Acceder");
+		btnAcceder.setFont(new Font("Dialog", Font.PLAIN, 11));
 		btnAcceder.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {			
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				MenuAlumno menuAlumno = new MenuAlumno();
+				menuAlumno.setVisible(true);
 			}
 		});
 		

@@ -1,8 +1,5 @@
 package org;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -48,7 +45,7 @@ public class Registro extends JFrame {
 		
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setForeground(Color.WHITE);
-		lblNombre.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		lblNombre.setFont(new Font("Dialog", Font.PLAIN, 14));
 		lblNombre.setBounds(10, 50, 70, 14);
 		panel.add(lblNombre);
 		
@@ -77,13 +74,13 @@ public class Registro extends JFrame {
 		
 		JLabel lblApellidos = new JLabel("Apellidos:");
 		lblApellidos.setForeground(Color.WHITE);
-		lblApellidos.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		lblApellidos.setFont(new Font("Dialog", Font.PLAIN, 14));
 		lblApellidos.setBounds(10, 119, 70, 14);
 		panel.add(lblApellidos);
 		
 		JLabel lblDni = new JLabel("DNI:");
 		lblDni.setForeground(Color.WHITE);
-		lblDni.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		lblDni.setFont(new Font("Dialog", Font.PLAIN, 14));
 		lblDni.setBounds(10, 189, 70, 14);
 		panel.add(lblDni);
 		
@@ -109,13 +106,13 @@ public class Registro extends JFrame {
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
 		lblContrasea.setForeground(Color.WHITE);
-		lblContrasea.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		lblContrasea.setFont(new Font("Dialog", Font.PLAIN, 14));
 		lblContrasea.setBounds(280, 91, 93, 14);
 		panel.add(lblContrasea);
 		
 		JLabel lblConfirmaLaContrasea = new JLabel("Confirma la contrase\u00F1a");
 		lblConfirmaLaContrasea.setForeground(Color.WHITE);
-		lblConfirmaLaContrasea.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		lblConfirmaLaContrasea.setFont(new Font("Dialog", Font.PLAIN, 14));
 		lblConfirmaLaContrasea.setBounds(280, 168, 170, 14);
 		panel.add(lblConfirmaLaContrasea);
 		
@@ -131,5 +128,16 @@ public class Registro extends JFrame {
 		rdbtnProfesor.setBackground(new Color(118, 45, 47));
 		rdbtnProfesor.setBounds(257, 22, 109, 23);
 		panel.add(rdbtnProfesor);
+
+		rdbtnProfesor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				rdbtnAlumno.setSelected(false);
+			}
+		});
+		rdbtnAlumno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				rdbtnProfesor.setSelected(false);
+			}
+		});
 	}
 }

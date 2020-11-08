@@ -1,8 +1,6 @@
 package org;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,7 +9,6 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 
 public class MenuAlumno extends JFrame {

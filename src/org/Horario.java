@@ -78,8 +78,13 @@ public class Horario extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				MenuAlumno menuAlumno = new MenuAlumno();
-				menuAlumno.setVisible(true);
+				if (Login.getTipoUsuario().equals("Alumno")) {
+					MenuAlumno menu = new MenuAlumno();
+					menu.setVisible(true);					
+				}else {
+					MenuProfesor menu = new MenuProfesor();
+					menu.setVisible(true);
+				}
 			}
 		});
 		btnVolver.setForeground(Color.WHITE);

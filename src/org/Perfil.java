@@ -356,9 +356,14 @@ public class Perfil extends JFrame {
 		btnVolverMenu_1.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnVolverMenu_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuAlumno menu = new MenuAlumno();
-				menu.setVisible(true);
 				setVisible(false);
+				if (Login.getTipoUsuario().equals("Alumno")) {
+					MenuAlumno menu = new MenuAlumno();
+					menu.setVisible(true);					
+				}else {
+					MenuProfesor menu = new MenuProfesor();
+					menu.setVisible(true);
+				}
 			}
 		});
 		btnVolverMenu_1.setForeground(Color.WHITE);
@@ -377,9 +382,14 @@ public class Perfil extends JFrame {
 		btnVolverMenu_1_1.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnVolverMenu_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuAlumno menu = new MenuAlumno();
-				menu.setVisible(true);
 				setVisible(false);
+				if (Login.getTipoUsuario().equals("Alumno")) {
+					MenuAlumno menu = new MenuAlumno();
+					menu.setVisible(true);					
+				}else {
+					MenuProfesor menu = new MenuProfesor();
+					menu.setVisible(true);
+				}
 			}
 		});
 		btnVolverMenu_1_1.setForeground(Color.WHITE);

@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Image;
 
@@ -18,6 +20,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.font.TextLayout;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.Icon;
@@ -98,11 +102,11 @@ public class Login extends JFrame {
 					MenuAlumno menuAlumno = new MenuAlumno();
 					menuAlumno.setVisible(true);
 					tipoUsuario=txtfUsuario.getText();
-				}else {
+				}else if (txtfUsuario.getText().equals("Profesor")){
 					MenuProfesor menuProfesor = new MenuProfesor();
 					menuProfesor.setVisible(true);
 					tipoUsuario=txtfUsuario.getText();
-				} 
+				} else JOptionPane.showMessageDialog(new Login(), "Por favor escriba \"Profesor\" o \"Alumno\" como nombre de usuario");
 			}
 		});
 

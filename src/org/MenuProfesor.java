@@ -206,6 +206,7 @@ public class MenuProfesor extends JFrame {
 		JCheckBox jcHecho = new JCheckBox();
 		jcHecho.setSize(20, 20);
 		
+		
 		table = new JTable();
 		table.setBackground(Color.WHITE);
 		table.setFont(new Font("Dialog", Font.PLAIN, 15));

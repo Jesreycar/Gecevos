@@ -7,6 +7,8 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,6 +16,9 @@ import javax.swing.JMenu;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -28,9 +33,12 @@ import javax.swing.JCheckBox;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import java.awt.event.MouseAdapter;
 /**
- * Esta clase contiene el menú con todas las opciones del profesorado
- * @author Juan Antonio Escribano Díaz
+ * Esta clase contiene el menï¿½ con todas las opciones del profesorado
+ * @author Juan Antonio Escribano Dï¿½az
  * @version 1.0
  */
 public class MenuProfesor extends JFrame {
@@ -51,14 +59,15 @@ public class MenuProfesor extends JFrame {
 		contentPane.setBackground(new Color(118, 45, 47));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
 		separator.setForeground(Color.WHITE);
 		separator.setBounds(302, 10, 2, 421);
 		contentPane.add(separator);
 
-		//Barra de menús
+		//Barra de menï¿½s
+
 		JMenuBar menu = new JMenuBar();
 		menu.setForeground(Color.WHITE);
 		menu.setBorderPainted(false);
@@ -78,7 +87,7 @@ public class MenuProfesor extends JFrame {
 		mntmRecordatorio.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}
 		});
 		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar Sesi\u00F3n");
@@ -87,7 +96,7 @@ public class MenuProfesor extends JFrame {
 		mntmCerrarSesin.setBackground(new Color(72,75,156));
 		mnOpciones.add(mntmCerrarSesin);
 		mntmCerrarSesin.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -102,7 +111,7 @@ public class MenuProfesor extends JFrame {
 		mntmCerrarVentana.setBackground(new Color(72,75,156));
 		mnOpciones.add(mntmCerrarVentana);
 		mntmCerrarVentana.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -113,7 +122,10 @@ public class MenuProfesor extends JFrame {
 		mnAyuda.setForeground(Color.WHITE);
 		mnAyuda.setFont(new Font("Dialog", Font.BOLD, 12));
 		menu.add(mnAyuda);
-		
+
+		/*
+		 * Botones de los menus  
+		 */
 		JButton btnPerfil = new JButton("Perfil");
 		btnPerfil.setFocusPainted(false);
 		btnPerfil.setBorder(new LineBorder(new Color(229,229,229), 2));
@@ -129,7 +141,7 @@ public class MenuProfesor extends JFrame {
 		});
 		btnPerfil.setBounds(24, 70, 249, 45);
 		contentPane.add(btnPerfil);
-		
+
 		JButton btnPartes = new JButton("Partes");
 		btnPartes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -162,7 +174,7 @@ public class MenuProfesor extends JFrame {
 		btnClases.setBackground(new Color(45, 118, 116));
 		btnClases.setBounds(24, 180, 249, 45);
 		contentPane.add(btnClases);
-		
+
 
 		JButton btnHorario = new JButton("Horario");
 		btnHorario.addActionListener(new ActionListener() {
@@ -179,9 +191,9 @@ public class MenuProfesor extends JFrame {
 		btnHorario.setBackground(new Color(45, 118, 116));
 		btnHorario.setBounds(24, 235, 249, 45);
 		contentPane.add(btnHorario);
-		
 
-		JButton btnCerrarSesion = new JButton("Cerrar Sesión");
+
+		JButton btnCerrarSesion = new JButton("Cerrar Sesiï¿½n");
 		btnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -196,7 +208,7 @@ public class MenuProfesor extends JFrame {
 		btnCerrarSesion.setBackground(new Color(45, 118, 116));
 		btnCerrarSesion.setBounds(24, 290, 249, 45);
 		contentPane.add(btnCerrarSesion);
-		
+
 		JLabel lblImg = new JLabel("img");
 		lblImg.setBounds(new Rectangle(33, 20, 124, 105));
 		Icon icono = new ImageIcon(new ImageIcon("img/ImgPerfil.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_REPLICATE));
@@ -204,15 +216,18 @@ public class MenuProfesor extends JFrame {
 		lblImg.setBounds(452, 10, 124, 105);
 		lblImg.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		contentPane.add(lblImg);
-		
+
+		/*
+		 * Zona de informacion del profesor
+		 */
 		JLabel lblNombreCompleto = new JLabel("Nombre Completo");
 		lblNombreCompleto.setFont(new Font("Dialog", Font.PLAIN, 15));
 		lblNombreCompleto.setBounds(314, 56, 128, 20);
 		contentPane.add(lblNombreCompleto);
 		JCheckBox jcHecho = new JCheckBox();
 		jcHecho.setSize(20, 20);
-		
-		
+
+
 		table = new JTable();
 		table.setBackground(Color.WHITE);
 		table.setFont(new Font("Dialog", Font.PLAIN, 15));
@@ -220,11 +235,42 @@ public class MenuProfesor extends JFrame {
 		table.setModel(new DefaultTableModel(
 				new Object[][] {
 					{"Hablar con el jefe de departamento"},
-					{"Explicar los arrays en 1º DAM"},
+					{"Explicar los arrays en 1 DAM"},
 				},
 				new String[] {
 						"Recordatorio", "Hecho"
 				}));
+
+		table.getColumn("Hecho").setCellEditor(table.getDefaultEditor(Boolean.class));
+		table.getColumn("Hecho").setCellRenderer(table.getDefaultRenderer(Boolean.class));
 		contentPane.add(table);
+		
+		/*
+		 * Asigna en false todos los checkbox de la tabla
+		 */
+		DefaultTableModel df = (DefaultTableModel) table.getModel();
+		
+		for (int i=0;i<df.getRowCount(); i++) {
+			df.setValueAt(false, i, 1);
+		}
+		/*
+		 * En caso de que se pulse el checkbox se elimina el elmento de la tabla 
+		 * Este evento se activa cada vez que se realiza algÃºn cambio en la tabla 
+		 * si se pulsa el checkbox entra en este evento, busca la fila que se ha 
+		 * marcado como hecho y se elimina.
+		 */
+		table.addPropertyChangeListener(new PropertyChangeListener() {
+			
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				for (int i=0;i<df.getRowCount(); i++) {
+					if(df.getDataVector().elementAt(i).elementAt(1).toString().contentEquals("true")) {
+						System.out.println("Se ha eliminado "+df.getDataVector().elementAt(i).elementAt(0).toString()+" con exito");
+						df.removeRow(i);
+					}
+				}
+			}
+		});
+
 	}
 }

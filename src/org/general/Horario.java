@@ -1,4 +1,4 @@
-package org;
+package org.general;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,6 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
+import org.Login;
+import org.alumno.MenuAlumno;
+import org.profesor.MenuProfesor;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

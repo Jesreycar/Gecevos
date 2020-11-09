@@ -1,4 +1,4 @@
-package org;
+package org.general;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -41,7 +41,7 @@ public class MisClases extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		//Tabla donde se muestran las diferentes pestañas
+		//Tabla donde se muestran las diferentes pestaï¿½as
 		JTabbedPane tbModificar = new JTabbedPane(JTabbedPane.TOP);
 		tbModificar.setRequestFocusEnabled(false);
 		tbModificar.setForeground(Color.WHITE);

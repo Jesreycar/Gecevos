@@ -1,4 +1,4 @@
-package org;
+package org.alumno;
 
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -30,7 +30,7 @@ import java.awt.Choice;
 import java.awt.Panel;
 import java.awt.Button;
 /**
- * Información de partes para los alumnos
+ * Informaciï¿½n de partes para los alumnos
  * @author Jesus Reyes
  * @version 1.0
  */
@@ -54,7 +54,7 @@ public class PartesAlumno extends JFrame {
 		setResizable(false);
 		setContentPane(contentPane);
 
-		//Labels de información
+		//Labels de informaciï¿½n
 		JLabel lblNombreTut = new JLabel("Nombre Tutor", SwingConstants.CENTER);
 		lblNombreTut.setBorder(new LineBorder(new Color(229,229,229), 2));
 		lblNombreTut.setFont(new Font("Dialog", Font.PLAIN, 15));

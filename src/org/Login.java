@@ -7,6 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+
+import org.alumno.MenuAlumno;
+import org.profesor.MenuProfesor;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 

@@ -1,4 +1,4 @@
-package org;
+package org.alumno;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,6 +9,7 @@ import javax.swing.border.LineBorder;
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollBar;
@@ -83,10 +84,10 @@ public class Calificaciones extends JFrame {
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"Matematicas", "6"},
-				{"Física", "8"},
-				{"Física", "8"},
-				{"Física", "8"},
-				{"Física", "8"},
+				{"Fï¿½sica", "8"},
+				{"Fï¿½sica", "8"},
+				{"Fï¿½sica", "8"},
+				{"Fï¿½sica", "8"},
 			},
 			new String[] {
 				"Asignatura", "Nota"

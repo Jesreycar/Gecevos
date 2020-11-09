@@ -1,4 +1,4 @@
-package org;
+package org.profesor;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -42,7 +42,7 @@ public class PartesProfesor extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		//Labels y texto de información y escritura
+		//Labels y texto de informaciï¿½n y escritura
 		JLabel lblNombre = new JLabel("Nombre", SwingConstants.CENTER);
 		lblNombre.setOpaque(true);
 		lblNombre.setForeground(Color.WHITE);

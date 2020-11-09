@@ -1,4 +1,4 @@
-package org;
+package org.alumno;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -16,6 +16,11 @@ import javax.swing.JButton;
 import java.awt.Rectangle;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+
+import org.Login;
+import org.general.Horario;
+import org.general.Perfil;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 /**
@@ -127,7 +132,7 @@ public class MenuAlumno extends JFrame {
 		contentPane.add(lblCurso);
 		
 		
-		//Seàrador
+		//Seï¿½rador
 		JSeparator separator = new JSeparator();
 		separator.setBounds(15, 137, 547, 2);
 		contentPane.add(separator);

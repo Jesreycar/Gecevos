@@ -27,7 +27,7 @@ import java.awt.event.ActionEvent;
 
 /**
  * Esta clase es el perfil del usuario logueado, tambien se podra modificar los datos de este usuario
- * @author Juan Antonio Escribano Díaz
+ * @author Juan Antonio Escribano Dï¿½az
  * @version 1.0
  */
 public class Perfil extends JFrame {
@@ -175,7 +175,7 @@ public class Perfil extends JFrame {
 		contentPane.add(lblDNI);
 
 		/*
-		 * Creación del TabbedPanel
+		 * Creaciï¿½n del TabbedPanel
 		 */
 
 		UIManager.put("TabbedPane.selected", new Color(119,55,57));
@@ -291,18 +291,18 @@ public class Perfil extends JFrame {
 
 		JPanel jpCambiarContra= new JPanel();
 		jpCambiarContra.setBackground(new Color(119,55,57));
-		tbModificar.addTab("Cambiar Contraseña", null, jpCambiarContra, null);
+		tbModificar.addTab("Cambiar Contraseï¿½a", null, jpCambiarContra, null);
 		jpCambiarContra.setLayout(null);
 
-		JLabel lblEtiquetaContraseña = new JLabel("Contrase\u00F1a Actual");
-		lblEtiquetaContraseña.setOpaque(true);
-		lblEtiquetaContraseña.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEtiquetaContraseña.setForeground(Color.WHITE);
-		lblEtiquetaContraseña.setFont(new Font("Dialog", Font.PLAIN, 15));
-		lblEtiquetaContraseña.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
-		lblEtiquetaContraseña.setBackground(new Color(59, 22, 24));
-		lblEtiquetaContraseña.setBounds(10, 25, 197, 24);
-		jpCambiarContra.add(lblEtiquetaContraseña);
+		JLabel lblEtiquetaContrasena = new JLabel("Contrase\u00F1a Actual");
+		lblEtiquetaContrasena.setOpaque(true);
+		lblEtiquetaContrasena.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEtiquetaContrasena.setForeground(Color.WHITE);
+		lblEtiquetaContrasena.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEtiquetaContrasena.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblEtiquetaContrasena.setBackground(new Color(59, 22, 24));
+		lblEtiquetaContrasena.setBounds(10, 25, 197, 24);
+		jpCambiarContra.add(lblEtiquetaContrasena);
 
 		textField = new JTextField();
 		textField.setFont(new Font("Dialog", Font.PLAIN, 15));
@@ -310,15 +310,15 @@ public class Perfil extends JFrame {
 		textField.setBounds(218, 25, 249, 24);
 		jpCambiarContra.add(textField);
 
-		JLabel lblEtiquetaContraseñaNueva = new JLabel("Nueva Contrase\u00F1a:\r\n");
-		lblEtiquetaContraseñaNueva.setOpaque(true);
-		lblEtiquetaContraseñaNueva.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEtiquetaContraseñaNueva.setForeground(Color.WHITE);
-		lblEtiquetaContraseñaNueva.setFont(new Font("Dialog", Font.PLAIN, 15));
-		lblEtiquetaContraseñaNueva.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
-		lblEtiquetaContraseñaNueva.setBackground(new Color(59, 22, 24));
-		lblEtiquetaContraseñaNueva.setBounds(10, 59, 197, 24);
-		jpCambiarContra.add(lblEtiquetaContraseñaNueva);
+		JLabel lblEtiquetaContrasenaNueva = new JLabel("Nueva Contrase\u00F1a:\r\n");
+		lblEtiquetaContrasenaNueva.setOpaque(true);
+		lblEtiquetaContrasenaNueva.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEtiquetaContrasenaNueva.setForeground(Color.WHITE);
+		lblEtiquetaContrasenaNueva.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEtiquetaContrasenaNueva.setBorder(new LineBorder(new Color(229, 229, 229), 2, true));
+		lblEtiquetaContrasenaNueva.setBackground(new Color(59, 22, 24));
+		lblEtiquetaContrasenaNueva.setBounds(10, 59, 197, 24);
+		jpCambiarContra.add(lblEtiquetaContrasenaNueva);
 
 		JLabel lblNuevaContrasea = new JLabel("Nueva Contrase\u00F1a:");
 		lblNuevaContrasea.setOpaque(true);

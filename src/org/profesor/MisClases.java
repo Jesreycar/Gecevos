@@ -1,4 +1,4 @@
-package org.general;
+package org.profesor;
 
 import java.awt.Color;
 import java.awt.Font;

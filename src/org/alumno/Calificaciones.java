@@ -84,10 +84,10 @@ public class Calificaciones extends JFrame {
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"Matematicas", "6"},
-				{"F�sica", "8"},
-				{"F�sica", "8"},
-				{"F�sica", "8"},
-				{"F�sica", "8"},
+				{"Física", "8"},
+				{"Física", "8"},
+				{"Física", "8"},
+				{"Física", "8"},
 			},
 			new String[] {
 				"Asignatura", "Nota"

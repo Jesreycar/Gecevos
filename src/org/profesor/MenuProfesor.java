@@ -16,7 +16,6 @@ import javax.swing.table.DefaultTableModel;
 
 import org.Login;
 import org.general.Horario;
-import org.general.MisClases;
 import org.general.Perfil;
 
 import javax.swing.JMenuBar;

@@ -295,7 +295,7 @@ public class Perfil extends JFrame {
 
 		JPanel jpCambiarContra= new JPanel();
 		jpCambiarContra.setBackground(new Color(119,55,57));
-		tbModificar.addTab("Cambiar Contrase�a", null, jpCambiarContra, null);
+		tbModificar.addTab("Cambiar Contraseña", null, jpCambiarContra, null);
 		jpCambiarContra.setLayout(null);
 
 		JLabel lblEtiquetaContrasena = new JLabel("Contrase\u00F1a Actual");

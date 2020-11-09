@@ -1,11 +1,16 @@
 package org.profesor;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -28,6 +33,8 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.io.IOException;
 import java.beans.PropertyChangeEvent;
 /**
  * Esta clase contiene el menú con todas las opciones del profesorado
@@ -73,7 +80,7 @@ public class MenuProfesor extends JFrame {
 		mnOpciones.setForeground(Color.WHITE);
 		mnOpciones.setBackground(new Color(72,75,156));
 		menu.add(mnOpciones);
-		
+
 		JMenuItem mntmRecordatorio = new JMenuItem("Recordatorio");
 		mntmRecordatorio.setFont(new Font("Dialog", Font.PLAIN, 12));
 		mntmRecordatorio.setForeground(Color.WHITE);
@@ -119,6 +126,25 @@ public class MenuProfesor extends JFrame {
 		mnAyuda.setForeground(Color.WHITE);
 		mnAyuda.setFont(new Font("Dialog", Font.BOLD, 12));
 		menu.add(mnAyuda);
+		
+		JMenuItem mntmAyuda =new JMenuItem("Manual");
+		mntmAyuda.setFont(new Font("Dialog", Font.PLAIN, 12));
+		mntmAyuda.setForeground(Color.WHITE);
+		mntmAyuda.setBackground(new Color(72,75,156));
+		mnAyuda.add(mntmAyuda);
+		mntmAyuda.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					Desktop.getDesktop().open(new File("Proyecto Gecevos.pdf"));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+
+
+		});
 
 		/*
 		 * Botones de los menus  
@@ -213,7 +239,7 @@ public class MenuProfesor extends JFrame {
 		lblImg.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		contentPane.add(lblImg);
 
-		
+
 		/*
 		 * Zona de informacion del profesor 
 		 */
@@ -242,12 +268,12 @@ public class MenuProfesor extends JFrame {
 		table.getColumn("Hecho").setCellEditor(table.getDefaultEditor(Boolean.class));
 		table.getColumn("Hecho").setCellRenderer(table.getDefaultRenderer(Boolean.class));
 		contentPane.add(table);
-		
+
 		/*
 		 * Asigna en false todos los checkbox de la tabla
 		 */
 		DefaultTableModel df = (DefaultTableModel) table.getModel();
-		
+
 		for (int i=0;i<df.getRowCount(); i++) {
 			df.setValueAt(false, i, 1);
 		}
@@ -258,7 +284,7 @@ public class MenuProfesor extends JFrame {
 		 * marcado como hecho y se elimina.
 		 */
 		table.addPropertyChangeListener(new PropertyChangeListener() {
-			
+
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
 				for (int i=0;i<df.getRowCount(); i++) {

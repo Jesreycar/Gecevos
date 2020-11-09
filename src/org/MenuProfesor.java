@@ -217,8 +217,9 @@ public class MenuProfesor extends JFrame {
 		lblImg.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		contentPane.add(lblImg);
 
+		
 		/*
-		 * Zona de informacion del profesor
+		 * Zona de informacion del profesor 
 		 */
 		JLabel lblNombreCompleto = new JLabel("Nombre Completo");
 		lblNombreCompleto.setFont(new Font("Dialog", Font.PLAIN, 15));

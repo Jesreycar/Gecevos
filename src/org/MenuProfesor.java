@@ -1,6 +1,5 @@
 package org;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -14,13 +13,9 @@ import javax.swing.JMenu;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import java.awt.Component;
-import javax.swing.Box;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -145,7 +140,6 @@ public class MenuProfesor extends JFrame {
 		btnPartes.setBackground(new Color(45, 118, 116));
 		btnPartes.setBounds(24, 125, 249, 45);
 		contentPane.add(btnPartes);
-
 
 		JButton btnClases = new JButton("Mis Clases");
 		btnClases.addActionListener(new ActionListener() {

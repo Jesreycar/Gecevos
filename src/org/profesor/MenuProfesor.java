@@ -251,22 +251,22 @@ public class MenuProfesor extends JFrame {
 		JCheckBox jcHecho = new JCheckBox();
 		jcHecho.setSize(20, 20);
 
-
+		/*
+		 * Asignacion de datos en la tabla
+		 */
 		table = new JTable();
 		table.setBackground(Color.WHITE);
 		table.setFont(new Font("Dialog", Font.PLAIN, 15));
 		table.setBounds(314, 125, 262, 284);
 		table.setModel(new DefaultTableModel(
-				new Object[][] {
-					{"Hablar con el jefe de departamento"},
-					{"Explicar los arrays en 1 DAM"},
-				},
+				Recordatorio.getTareas(),
 				new String[] {
 						"Recordatorio", "Hecho"
 				}));
 
 		table.getColumn("Hecho").setCellEditor(table.getDefaultEditor(Boolean.class));
 		table.getColumn("Hecho").setCellRenderer(table.getDefaultRenderer(Boolean.class));
+		table.setRowHeight(50);
 		contentPane.add(table);
 
 		/*
@@ -290,6 +290,7 @@ public class MenuProfesor extends JFrame {
 				for (int i=0;i<df.getRowCount(); i++) {
 					if(df.getDataVector().elementAt(i).elementAt(1).toString().contentEquals("true")) {
 						System.out.println("Se ha eliminado "+df.getDataVector().elementAt(i).elementAt(0).toString()+" con exito");
+						Recordatorio.eliminarTarea(df.getDataVector().elementAt(i).elementAt(0).toString());
 						df.removeRow(i);
 					}
 				}

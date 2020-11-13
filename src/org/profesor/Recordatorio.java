@@ -126,7 +126,6 @@ public class Recordatorio extends JFrame {
 				if (KeyEvent.VK_ENTER==e.getExtendedKeyCode()) {
 					añadirTarea(txtaTarea.getText());
 
-					System.out.println(tarea.length);
 					df.addRow(new Object[] {txtaTarea.getText()});
 					table.getColumn("Hecho").setCellEditor(table.getDefaultEditor(Boolean.class));
 					table.getColumn("Hecho").setCellRenderer(table.getDefaultRenderer(Boolean.class));
@@ -189,16 +188,22 @@ public class Recordatorio extends JFrame {
 	 */
 	public static void eliminarTarea(String recordatorio) {
 		Object[][] nuevasTareas= new Object[tarea.length-1][1];
+		System.out.println(nuevasTareas.length);
+		String tareaEliminada="";
 		int j=0;
+		System.out.println(tarea[j][0]);
 		for (int i=0;i<nuevasTareas.length;i++) {
-			
-			if(tarea[j][0].toString().equals(recordatorio))
-				j++;
-			else {
-				nuevasTareas[i][0]=tarea[j][0];
-				j++;
+			if (tarea[j][0]!=null) {
+				if(tarea[j][0].toString().equals(recordatorio)&&!tarea[j][0].toString().equals(tareaEliminada)) {
+					tareaEliminada=tarea[j][0].toString();
+					j++;
+				}else {
+					nuevasTareas[i][0]=tarea[j][0];
+					j++;
+				}
 			}
 		}
 		tarea=nuevasTareas.clone();
+		System.out.println(tarea.length);
 	}
 }

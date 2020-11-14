@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -62,7 +63,7 @@ public class Recordatorio extends JFrame {
 		txtaTarea.setBounds(10, 65, 566, 114);
 		contentPane.add(txtaTarea);
 
-		
+
 		table = new JTable();
 		table.setBounds(10, 209, 558, 202);
 		table.setModel(new DefaultTableModel(
@@ -96,9 +97,8 @@ public class Recordatorio extends JFrame {
 			public void propertyChange(PropertyChangeEvent evt) {
 
 				for (int i=0;i<df.getRowCount(); i++) {
-					if(df.getDataVector().elementAt(i).elementAt(1).toString().contentEquals("true")) {
-						System.out.println("Se ha eliminado "+df.getDataVector().elementAt(i).elementAt(0).toString()+" con exito");
-						eliminarTarea(df.getDataVector().elementAt(i).elementAt(0).toString());
+					if(((Vector) df.getDataVector().elementAt(i)).elementAt(1).toString().contentEquals("true")) {
+						eliminarTarea(((Vector) df.getDataVector().elementAt(i)).elementAt(0).toString());
 						df.removeRow(i);
 					}
 				}
@@ -110,7 +110,6 @@ public class Recordatorio extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				añadirTarea(txtaTarea.getText());
 
-				System.out.println(tarea.length);
 				df.addRow(new Object[] {txtaTarea.getText()});
 				table.getColumn("Hecho").setCellEditor(table.getDefaultEditor(Boolean.class));
 				table.getColumn("Hecho").setCellRenderer(table.getDefaultRenderer(Boolean.class));
@@ -192,10 +191,8 @@ public class Recordatorio extends JFrame {
 	 */
 	public static void eliminarTarea(String recordatorio) {
 		Object[][] nuevasTareas= new Object[tarea.length-1][1];
-		System.out.println(nuevasTareas.length);
 		String tareaEliminada="";
 		int j=0;
-		System.out.println(tarea[j][0]);
 		for (int i=0;i<nuevasTareas.length;i++) {
 			if (tarea[j][0]!=null) {
 				if(tarea[j][0].toString().equals(recordatorio)&&!tarea[j][0].toString().equals(tareaEliminada)) {
@@ -208,6 +205,6 @@ public class Recordatorio extends JFrame {
 			}
 		}
 		tarea=nuevasTareas.clone();
-		System.out.println(tarea.length);
+
 	}
 }

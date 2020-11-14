@@ -36,6 +36,7 @@ import javax.swing.JTable;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Vector;
 import java.beans.PropertyChangeEvent;
 /**
  * Esta clase contiene el menú con todas las opciones del profesorado
@@ -293,9 +294,8 @@ public class MenuProfesor extends JFrame {
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
 				for (int i=0;i<df.getRowCount(); i++) {
-					if(df.getDataVector().elementAt(i).elementAt(1).toString().contentEquals("true")) {
-						System.out.println("Se ha eliminado "+df.getDataVector().elementAt(i).elementAt(0).toString()+" con exito");
-						Recordatorio.eliminarTarea(df.getDataVector().elementAt(i).elementAt(0).toString());
+					if(((Vector) df.getDataVector().elementAt(i)).elementAt(1).toString().contentEquals("true")) {
+						Recordatorio.eliminarTarea(((Vector) df.getDataVector().elementAt(i)).elementAt(0).toString());
 						df.removeRow(i);
 					}
 				}

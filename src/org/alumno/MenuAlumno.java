@@ -21,7 +21,6 @@ import javax.swing.border.LineBorder;
 import org.Login;
 import org.general.Horario;
 import org.general.Perfil;
-import org.profesor.Recordatorio;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;

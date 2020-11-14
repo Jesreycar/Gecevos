@@ -7,7 +7,6 @@ import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 import java.awt.Font;
 import javax.swing.JTable;
-import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.ActionListener;

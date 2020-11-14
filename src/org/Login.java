@@ -24,7 +24,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.font.TextLayout;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -145,12 +144,12 @@ public class Login extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(mostrar) {
-					Icon icono = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon icono = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImg.setIcon(icono);
 					pfContra.setEchoChar((char)0);
 					mostrar = false;
 				}else {
-					Icon icono = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon icono = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImg.setIcon(icono);
 					pfContra.setEchoChar('*');
 					mostrar = true;

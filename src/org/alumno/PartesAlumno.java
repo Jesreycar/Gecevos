@@ -4,38 +4,15 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JScrollPane;
-import javax.swing.JScrollBar;
-import javax.swing.JTextArea;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
-import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
 import java.awt.Font;
 import javax.swing.border.LineBorder;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
 import javax.swing.JLabel;
-import javax.swing.JTree;
-import javax.swing.JTable;
-import javax.swing.JSlider;
-import javax.swing.JList;
-import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Choice;
-import java.awt.Panel;
-import java.awt.Button;
-import javax.swing.JLayeredPane;
-import javax.swing.JDesktopPane;
-import javax.swing.Box;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JToggleButton;
-import java.awt.BorderLayout;
-import javax.swing.BoxLayout;
 import java.awt.GridLayout;
 /**
  * Informaci�n de partes para los alumnos

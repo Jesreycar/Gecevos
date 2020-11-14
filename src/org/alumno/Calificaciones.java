@@ -22,7 +22,6 @@ import javax.swing.JScrollPane;
 public class Calificaciones extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table, table1, table2;
 
 	/**
 	 * Create the frame.
@@ -40,11 +39,7 @@ public class Calificaciones extends JFrame {
 
 		//Botones trimestres
 		JButton btnPrimerTrimestre = new JButton("Primer Trimestre");
-		btnPrimerTrimestre.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
+		btnPrimerTrimestre.setEnabled(false);
 		btnPrimerTrimestre.setFocusPainted(false);
 		btnPrimerTrimestre.setForeground(Color.WHITE);
 		btnPrimerTrimestre.setFont(new Font("Dialog", Font.PLAIN, 11));
@@ -71,102 +66,6 @@ public class Calificaciones extends JFrame {
 		btnTercerTrimestre.setBounds(393, 39, 161, 29);
 		contentPane.add(btnTercerTrimestre);
 
-		//Panel donde se muestra la tabla
-		JPanel panel = new JPanel();
-		panel.setBorder(null);
-		panel.setBounds(27, 94, 527, 317);
-		panel.setBackground(new Color(118, 45, 47));
-		contentPane.add(panel);
-
-		//Tabla Primer Trimestre
-		table = new JTable();
-		table.setBounds(0, 0, 527, 317);
-		table.setGridColor(Color.BLACK);
-		table.setFont(new Font("Dialog", Font.PLAIN, 15));
-		table.setForeground(Color.WHITE);
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setBackground(new Color(118, 45, 47));
-		table.setModel(new DefaultTableModel(
-				new Object[][] {
-					{"Matematicas", "6"},
-					{"Física", "4"},
-					{"Física", "5"},
-					{"Física", "6"},
-					{"Física", "7"},
-				},
-				new String[] {
-						"Asignatura", "Nota"
-				}
-				));
-		table.setDefaultEditor(Object.class, null);
-		panel.setLayout(new CardLayout(0, 0));
-		table.setRowHeight(50);
-
-		//Tabla Segundo Trimestre
-		table1 = new JTable();
-		table1.setBounds(0, 0, 150, 80);
-		table1.setGridColor(Color.BLACK);
-		table1.setFont(new Font("Dialog", Font.PLAIN, 15));
-		table1.setForeground(Color.WHITE);
-		table1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table1.setBackground(new Color(118, 45, 47));
-		table1.setModel(new DefaultTableModel(
-				new Object[][] {
-					{"Matematicas", "5"},
-					{"Física", "5"},
-					{"Física", "6"},
-					{"Física", "9"},
-					{"Física", "8"},
-				},
-				new String[] {
-						"Asignatura", "Nota"
-				}
-				));
-		table.setDefaultEditor(Object.class, null);
-		panel.setLayout(new CardLayout(0, 0));
-		table.setRowHeight(50);
-
-		//Tabla Tercer Trimestre
-		table2 = new JTable();
-		table2.setGridColor(Color.BLACK);
-		table2.setFont(new Font("Dialog", Font.PLAIN, 15));
-		table2.setForeground(Color.WHITE);
-		table2.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table2.setBackground(new Color(118, 45, 47));
-		table2.setModel(new DefaultTableModel(
-				new Object[][] {
-					{"Matematicas", "9"},
-					{"Física", "6"},
-					{"Física", "7"},
-					{"Física", "8"},
-					{"Física", "9"},
-				},
-				new String[] {
-						"Asignatura", "Nota"
-				}
-				));
-		table.setDefaultEditor(Object.class, null);
-		panel.setLayout(new CardLayout(0, 0));
-		table.setRowHeight(50);
-
-		JPanel panelHorario = new JPanel();
-		panelHorario.setBackground(new Color(118, 45, 47));
-		panel.add(panelHorario, "name_91741926888100");
-
-		JPanel panelHorario_1 = new JPanel();
-		panelHorario_1.setBackground(new Color(118, 45, 47));
-		panel.add(panelHorario_1, "name_91847347236600");
-
-		JPanel panelHorario_2 = new JPanel();
-		panelHorario_2.setBackground(new Color(118, 45, 47));
-		panel.add(panelHorario_2, "name_91858126663200");
-		panelHorario.setLayout(null);
-
-		panelHorario.add(table);
-		panelHorario_1.setLayout(null);
-		panelHorario_1.add(table1);
-		panelHorario_2.add(table2);
-
 		//Boton volver al menu del usuario
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
@@ -183,10 +82,140 @@ public class Calificaciones extends JFrame {
 		btnVolver.setBackground(new Color(45, 118, 116));
 		btnVolver.setBounds(215, 425, 132, 25);
 		contentPane.add(btnVolver);
-		
-		//Scroll para la lista
+
+		//Panel donde se muestra la tabla
+		JPanel panel = new JPanel();
+		panel.setBorder(null);
+		panel.setBounds(27, 94, 527, 317);
+		panel.setBackground(new Color(118, 45, 47));
+		CardLayout cardLayout = new CardLayout(0, 0);
+		panel.setLayout(cardLayout);
+		contentPane.add(panel);
+
+		//Tabla Primer Trimestre
+		JTable table = new JTable();
+		table.setBounds(0, 0, 527, 317);
+		table.setGridColor(Color.BLACK);
+		table.setFont(new Font("Dialog", Font.PLAIN, 15));
+		table.setForeground(Color.WHITE);
+		table.setBorder(new LineBorder(new Color(0, 0, 0)));
+		table.setBackground(new Color(118, 45, 47));
+		table.setModel(new DefaultTableModel(
+				new Object[][] {
+					{"PSP", "6"},
+					{"ACD", "4"},
+					{"DIN", "5"},
+					{"HLC", "6"},
+					{"PMDM", "7"},
+					{"EIE", "7"},
+					{"SGE", "7"},
+				},
+				new String[] {
+						"Asignatura", "Nota"
+				}
+				));
+		table.setDefaultEditor(Object.class, null);
+		table.setRowHeight(50);
+
+		//Tabla Segundo Trimestre
+		JTable table1 = new JTable();
+		table1.setBounds(0, 0, 150, 80);
+		table1.setGridColor(Color.BLACK);
+		table1.setFont(new Font("Dialog", Font.PLAIN, 15));
+		table1.setForeground(Color.WHITE);
+		table1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		table1.setBackground(new Color(118, 45, 47));
+		table1.setModel(new DefaultTableModel(
+				new Object[][] {
+					{"PSP1", "6"},
+					{"ACD1", "4"},
+					{"DIN1", "5"},
+					{"HLC1", "6"},
+					{"PMDM1", "7"},
+					{"EIE1", "7"},
+					{"SGE1", "7"},
+				},
+				new String[] {
+						"Asignatura", "Nota"
+				}
+				));
+		table1.setDefaultEditor(Object.class, null);
+		table1.setRowHeight(50);
+
+		//Tabla Tercer Trimestre
+		JTable table2 = new JTable();
+		table2.setGridColor(Color.BLACK);
+		table2.setFont(new Font("Dialog", Font.PLAIN, 15));
+		table2.setForeground(Color.WHITE);
+		table2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		table2.setBackground(new Color(118, 45, 47));
+		table2.setModel(new DefaultTableModel(
+				new Object[][] {
+					{"PSP2", "6"},
+					{"ACD2", "4"},
+					{"DIN2", "5"},
+					{"HLC2", "6"},
+					{"PMDM2", "7"},
+					{"EIE2", "7"},
+					{"SGE2", "7"},
+				},
+				new String[] {
+						"Asignatura", "Nota"
+				}
+				));
+		table2.setDefaultEditor(Object.class, null);
+		table2.setRowHeight(50);
+
+		//Scroll Primer Trimestre
 		JScrollPane scrollPane = new JScrollPane(table);
-		panel.add(scrollPane);
+		panel.add(scrollPane, "PrimerTrim");
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+		//Scroll Segundo Trimestre
+		JScrollPane scrollPane1 = new JScrollPane(table1);
+		panel.add(scrollPane1, "SegundoTrim");
+		scrollPane1.setVisible(false);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+		//Scroll Tercer Trimestre
+		JScrollPane scrollPane2 = new JScrollPane(table2);
+		panel.add(scrollPane2, "TercerTrim");
+		scrollPane2.setVisible(false);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		
+		//Eventos de los botones
+		btnPrimerTrimestre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnPrimerTrimestre.setEnabled(false);
+				btnSegundoTrimestre.setEnabled(true);
+				btnTercerTrimestre.setEnabled(true);
+				cardLayout.show(panel, "PrimerTrim");
+				scrollPane.setVisible(true);
+				scrollPane1.setVisible(false);
+				scrollPane2.setVisible(false);
+			}
+		});
+		btnSegundoTrimestre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnPrimerTrimestre.setEnabled(true);
+				btnSegundoTrimestre.setEnabled(false);
+				btnTercerTrimestre.setEnabled(true);
+				cardLayout.show(panel, "SegundoTrim");
+				scrollPane.setVisible(false);
+				scrollPane1.setVisible(true);
+				scrollPane2.setVisible(false);
+			}
+		});
+		btnTercerTrimestre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnPrimerTrimestre.setEnabled(true);
+				btnSegundoTrimestre.setEnabled(true);
+				btnTercerTrimestre.setEnabled(false);
+				cardLayout.show(panel, "TercerTrim");
+				scrollPane.setVisible(false);
+				scrollPane1.setVisible(false);
+				scrollPane2.setVisible(true);
+			}
+		});
 	}
 }

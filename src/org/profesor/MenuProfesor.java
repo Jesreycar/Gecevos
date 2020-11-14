@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
@@ -268,6 +269,10 @@ public class MenuProfesor extends JFrame {
 		table.getColumn("Hecho").setCellRenderer(table.getDefaultRenderer(Boolean.class));
 		table.setRowHeight(50);
 		contentPane.add(table);
+
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(314, 125, 262, 284);
+		contentPane.add(scrollPane);
 
 		/*
 		 * Asigna en false todos los checkbox de la tabla

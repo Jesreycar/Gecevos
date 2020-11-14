@@ -10,16 +10,12 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-
-import org.Login;
-import org.alumno.MenuAlumno;
-
 import javax.swing.JTextArea;
 import javax.swing.JTable;
 import java.awt.event.KeyAdapter;
@@ -66,9 +62,9 @@ public class Recordatorio extends JFrame {
 		txtaTarea.setBounds(10, 65, 566, 114);
 		contentPane.add(txtaTarea);
 
-
+		
 		table = new JTable();
-		table.setBounds(10, 209, 566, 202);
+		table.setBounds(10, 209, 558, 202);
 		table.setModel(new DefaultTableModel(
 				getTareas(),
 				new String[] {"Recordatorio", "Hecho"}
@@ -78,7 +74,9 @@ public class Recordatorio extends JFrame {
 		table.getColumn("Hecho").setCellRenderer(table.getDefaultRenderer(Boolean.class));
 		table.setRowHeight(50);
 		contentPane.add(table);
-
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(10, 209, 558, 202);
+		contentPane.add(scrollPane);
 		DefaultTableModel df = (DefaultTableModel) table.getModel();
 		/*
 		 * Asigna en false todos los checkbox de la tabla
@@ -124,7 +122,7 @@ public class Recordatorio extends JFrame {
 				txtaTarea.setText("");
 			}
 		});
-		
+
 		txtaTarea.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -141,9 +139,9 @@ public class Recordatorio extends JFrame {
 						df.setValueAt(false, i, 1);
 					txtaTarea.setText("");
 				}
-					
-				}
-			});
+
+			}
+		});
 
 		btnCrearTarea.setForeground(Color.WHITE);
 		btnCrearTarea.setFont(new Font("Dialog", Font.PLAIN, 11));
@@ -169,6 +167,7 @@ public class Recordatorio extends JFrame {
 		btnVolver.setBackground(new Color(45, 118, 116));
 		btnVolver.setBounds(152, 422, 269, 40);
 		contentPane.add(btnVolver);
+
 	}
 
 	public static Object[][] getTareas(){

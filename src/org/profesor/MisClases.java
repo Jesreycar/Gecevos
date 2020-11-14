@@ -12,6 +12,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -45,6 +46,9 @@ public class MisClases extends JFrame {
 		contentPane.setLayout(null);
 
 		//Tabla donde se muestran las diferentes pesta�as
+
+		UIManager.put("TabbedPane.selected", new Color(119,55,57));
+		UIManager.put("TabbedPane.contentAreaColor", new Color(119,55,57));
 		JTabbedPane tbModificar = new JTabbedPane(JTabbedPane.TOP);
 		tbModificar.setRequestFocusEnabled(false);
 		tbModificar.setForeground(Color.WHITE);
@@ -164,6 +168,13 @@ public class MisClases extends JFrame {
 		jpObserv.add(btnAsignarObservacin);
 
 		JButton btnVolverMenu_1 = new JButton("Volver al Men\u00FA");
+		btnVolverMenu_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				MenuProfesor menu = new MenuProfesor();
+				menu.setVisible(true);
+			}
+		});
 		btnVolverMenu_1.setForeground(Color.WHITE);
 		btnVolverMenu_1.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnVolverMenu_1.setFocusPainted(false);

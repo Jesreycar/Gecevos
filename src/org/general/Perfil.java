@@ -6,6 +6,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
@@ -27,6 +28,8 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 /**
@@ -41,9 +44,10 @@ public class Perfil extends JFrame {
 	private JTextField txtfNombre;
 	private JTextField txtfEmail;
 	private JTextField txtfDNI;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private static JPasswordField jpContra;
+	private static boolean mostrar=true;
+	private static JPasswordField jpContra_1;
+	private static JPasswordField jpContra_2;
 	private JTextField txtfRuta;
 
 	/**
@@ -308,12 +312,6 @@ public class Perfil extends JFrame {
 		lblEtiquetaContrasena.setBounds(10, 25, 197, 24);
 		jpCambiarContra.add(lblEtiquetaContrasena);
 
-		textField = new JTextField();
-		textField.setFont(new Font("Dialog", Font.PLAIN, 15));
-		textField.setColumns(10);
-		textField.setBounds(218, 25, 249, 24);
-		jpCambiarContra.add(textField);
-
 		JLabel lblEtiquetaContrasenaNueva = new JLabel("Nueva Contrase\u00F1a:\r\n");
 		lblEtiquetaContrasenaNueva.setOpaque(true);
 		lblEtiquetaContrasenaNueva.setHorizontalAlignment(SwingConstants.CENTER);
@@ -333,19 +331,94 @@ public class Perfil extends JFrame {
 		lblNuevaContrasea.setBackground(new Color(59, 22, 24));
 		lblNuevaContrasea.setBounds(10, 93, 197, 24);
 		jpCambiarContra.add(lblNuevaContrasea);
+		
+		jpContra = new JPasswordField();
+		jpContra.setFont(new Font("Dialog", Font.PLAIN, 15));
+		jpContra.setColumns(10);
+		jpContra.setBounds(217, 25, 249, 24);
+		jpCambiarContra.add(jpContra);
 
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Dialog", Font.PLAIN, 15));
-		textField_1.setColumns(10);
-		textField_1.setBounds(218, 59, 249, 24);
-		jpCambiarContra.add(textField_1);
+		jpContra_1 = new JPasswordField();
+		jpContra_1.setFont(new Font("Dialog", Font.PLAIN, 15));
+		jpContra_1.setColumns(10);
+		jpContra_1.setBounds(218, 59, 249, 24);
+		jpCambiarContra.add(jpContra_1);
 
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Dialog", Font.PLAIN, 15));
-		textField_2.setColumns(10);
-		textField_2.setBounds(218, 93, 249, 24);
-		jpCambiarContra.add(textField_2);
-
+		jpContra_2 = new JPasswordField();
+		jpContra_2.setFont(new Font("Dialog", Font.PLAIN, 15));
+		jpContra_2.setColumns(10);
+		jpContra_2.setBounds(218, 93, 249, 24);
+		jpCambiarContra.add(jpContra_2);
+		
+		JLabel lblImgM = new JLabel("");
+		lblImgM.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if(mostrar) {
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM.getWidth(), lblImgM.getHeight(), Image.SCALE_AREA_AVERAGING));
+					lblImgM.setIcon(iconoM);
+					jpContra.setEchoChar((char)0);
+					mostrar = false;
+				}else {
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM.getWidth(), lblImgM.getHeight(), Image.SCALE_AREA_AVERAGING));
+					lblImgM.setIcon(iconoM);
+					jpContra.setEchoChar('*');
+					mostrar = true;
+				}
+			}
+		});
+		lblImgM.setBounds(new Rectangle(471, 27, 20, 20));
+		Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM.getWidth(), lblImgM.getHeight(), Image.SCALE_AREA_AVERAGING));
+		lblImgM.setIcon(iconoM);
+		lblImgM.setForeground(Color.WHITE);
+		jpCambiarContra.add(lblImgM);
+		
+		JLabel lblImgM1 = new JLabel("");
+		lblImgM1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if(mostrar) {
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM1.getWidth(), lblImgM1.getHeight(), Image.SCALE_AREA_AVERAGING));
+					lblImgM1.setIcon(iconoM);
+					jpContra_1.setEchoChar((char)0);
+					mostrar = false;
+				}else {
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM1.getWidth(), lblImgM1.getHeight(), Image.SCALE_AREA_AVERAGING));
+					lblImgM1.setIcon(iconoM);
+					jpContra_1.setEchoChar('*');
+					mostrar = true;
+				}
+			}
+		});
+		lblImgM1.setBounds(new Rectangle(471, 60, 20, 20));
+		Icon iconoM1 = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM1.getWidth(), lblImgM1.getHeight(), Image.SCALE_AREA_AVERAGING));
+		lblImgM1.setIcon(iconoM1);
+		lblImgM1.setForeground(Color.WHITE);
+		jpCambiarContra.add(lblImgM1);
+		
+		JLabel lblImgM2 = new JLabel("");
+		lblImgM2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if(mostrar) {
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM2.getWidth(), lblImgM2.getHeight(), Image.SCALE_AREA_AVERAGING));
+					lblImgM2.setIcon(iconoM);
+					jpContra_2.setEchoChar((char)0);
+					mostrar = false;
+				}else {
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM2.getWidth(), lblImgM2.getHeight(), Image.SCALE_AREA_AVERAGING));
+					lblImgM2.setIcon(iconoM);
+					jpContra_2.setEchoChar('*');
+					mostrar = true;
+				}
+			}
+		});
+		lblImgM2.setBounds(new Rectangle(471, 96, 20, 20));
+		Icon iconoM2 = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM2.getWidth(), lblImgM2.getHeight(), Image.SCALE_AREA_AVERAGING));
+		lblImgM2.setIcon(iconoM2);
+		lblImgM2.setForeground(Color.WHITE);
+		jpCambiarContra.add(lblImgM2);
+		
 		JButton btnCambiarContrasea = new JButton("Cambiar Contrase\u00F1a");
 		btnCambiarContrasea.setFocusPainted(false);
 		btnCambiarContrasea.setFont(new Font("Dialog", Font.PLAIN, 15));

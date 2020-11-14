@@ -2,6 +2,9 @@ package org.profesor;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -31,7 +34,7 @@ public class MisClases extends JFrame {
 		setTitle("Gecevos-MisClases");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
-		
+
 		//Panel principal
 		contentPane = new JPanel();
 		contentPane.setForeground(Color.WHITE);
@@ -40,7 +43,7 @@ public class MisClases extends JFrame {
 		contentPane.setBackground(new Color(118, 45, 47));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		//Tabla donde se muestran las diferentes pesta�as
 		JTabbedPane tbModificar = new JTabbedPane(JTabbedPane.TOP);
 		tbModificar.setRequestFocusEnabled(false);
@@ -51,14 +54,14 @@ public class MisClases extends JFrame {
 		tbModificar.setBackground(new Color(59, 22, 24));
 		tbModificar.setBounds(25, 11, 533, 232);
 		contentPane.add(tbModificar);
-		
+
 		//Panel para matricular
 		JPanel jpMatricular = new JPanel();
 		jpMatricular.setLayout(null);
 		jpMatricular.setBorder(null);
 		jpMatricular.setBackground(new Color(119, 55, 57));
 		tbModificar.addTab("Matriculaci\u00F3n Alumno", null, jpMatricular, null);
-		
+
 		//Labels y texto del panel matricular
 		JLabel lblCurso = new JLabel("Curso");
 		lblCurso.setOpaque(true);
@@ -69,13 +72,13 @@ public class MisClases extends JFrame {
 		lblCurso.setBackground(new Color(59, 22, 24));
 		lblCurso.setBounds(20, 61, 197, 24);
 		jpMatricular.add(lblCurso);
-		
+
 		textDNI = new JTextField();
 		textDNI.setFont(new Font("Dialog", Font.PLAIN, 15));
 		textDNI.setColumns(10);
 		textDNI.setBounds(227, 26, 280, 24);
 		jpMatricular.add(textDNI);
-		
+
 		JLabel lblDNI = new JLabel("DNI:");
 		lblDNI.setOpaque(true);
 		lblDNI.setHorizontalAlignment(SwingConstants.CENTER);
@@ -85,13 +88,13 @@ public class MisClases extends JFrame {
 		lblDNI.setBackground(new Color(59, 22, 24));
 		lblDNI.setBounds(20, 26, 197, 24);
 		jpMatricular.add(lblDNI);
-		
+
 		textCurso = new JTextField();
 		textCurso.setFont(new Font("Dialog", Font.PLAIN, 15));
 		textCurso.setColumns(10);
 		textCurso.setBounds(227, 61, 280, 24);
 		jpMatricular.add(textCurso);
-		
+
 		//Botones panel matricular
 		JButton btnMatricularAlumno = new JButton(" Matricular Alumno");
 		btnMatricularAlumno.setForeground(Color.WHITE);
@@ -101,7 +104,7 @@ public class MisClases extends JFrame {
 		btnMatricularAlumno.setBackground(new Color(45, 118, 116));
 		btnMatricularAlumno.setBounds(10, 156, 163, 21);
 		jpMatricular.add(btnMatricularAlumno);
-		
+
 		JButton btnVolverMenu = new JButton("Volver al Men\u00FA");
 		btnVolverMenu.setForeground(Color.WHITE);
 		btnVolverMenu.setFont(new Font("Dialog", Font.PLAIN, 15));
@@ -110,13 +113,13 @@ public class MisClases extends JFrame {
 		btnVolverMenu.setBackground(new Color(45, 118, 116));
 		btnVolverMenu.setBounds(353, 156, 163, 21);
 		jpMatricular.add(btnVolverMenu);
-		
+
 		//Panel de observaciones
 		JPanel jpObserv = new JPanel();
 		jpObserv.setLayout(null);
 		jpObserv.setBackground(new Color(119, 55, 57));
 		tbModificar.addTab("Observaciones", null, jpObserv, null);
-		
+
 		//Labels y texto del panel de observaciones
 		JLabel lblDNI_1 = new JLabel("DNI");
 		lblDNI_1.setOpaque(true);
@@ -127,7 +130,7 @@ public class MisClases extends JFrame {
 		lblDNI_1.setBackground(new Color(59, 22, 24));
 		lblDNI_1.setBounds(20, 26, 197, 24);
 		jpObserv.add(lblDNI_1);
-		
+
 		JLabel lblObsevacin = new JLabel("Obsevaci\u00F3n");
 		lblObsevacin.setOpaque(true);
 		lblObsevacin.setHorizontalAlignment(SwingConstants.CENTER);
@@ -137,19 +140,19 @@ public class MisClases extends JFrame {
 		lblObsevacin.setBackground(new Color(59, 22, 24));
 		lblObsevacin.setBounds(20, 58, 487, 24);
 		jpObserv.add(lblObsevacin);
-		
+
 		textObsev = new JTextField();
 		textObsev.setFont(new Font("Dialog", Font.PLAIN, 15));
 		textObsev.setColumns(10);
 		textObsev.setBounds(20, 93, 487, 62);
 		jpObserv.add(textObsev);
-		
+
 		textDNI_1 = new JTextField();
 		textDNI_1.setFont(new Font("Dialog", Font.PLAIN, 15));
 		textDNI_1.setColumns(10);
 		textDNI_1.setBounds(227, 26, 280, 26);
 		jpObserv.add(textDNI_1);
-		
+
 		//Botones del panel observacion
 		JButton btnAsignarObservacin = new JButton("Asignar Observaci\u00F3n");
 		btnAsignarObservacin.setForeground(Color.WHITE);
@@ -159,7 +162,7 @@ public class MisClases extends JFrame {
 		btnAsignarObservacin.setBackground(new Color(45, 118, 116));
 		btnAsignarObservacin.setBounds(10, 166, 163, 21);
 		jpObserv.add(btnAsignarObservacin);
-		
+
 		JButton btnVolverMenu_1 = new JButton("Volver al Men\u00FA");
 		btnVolverMenu_1.setForeground(Color.WHITE);
 		btnVolverMenu_1.setFont(new Font("Dialog", Font.PLAIN, 15));
@@ -168,13 +171,20 @@ public class MisClases extends JFrame {
 		btnVolverMenu_1.setBackground(new Color(45, 118, 116));
 		btnVolverMenu_1.setBounds(355, 166, 163, 21);
 		jpObserv.add(btnVolverMenu_1);
-		
+		btnVolverMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				MenuProfesor menu = new MenuProfesor();
+				menu.setVisible(true);
+			}
+		});
+
 		//Scroll panel donde se muestra la lista de clases
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBorder(new LineBorder(Color.BLACK, 2));
 		scrollPane.setBackground(new Color(118, 45, 47));
 		scrollPane.setBounds(25, 254, 533, 196);
 		contentPane.add(scrollPane);
-		
+
 	}
 }

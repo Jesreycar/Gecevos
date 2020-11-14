@@ -24,7 +24,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTable;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
+/**
+ * Esta clase administra los recordatorios del profesor
+ * @author Juan Antonio Escribano Díaz
+ * @version 1.0
+ */
 public class Recordatorio extends JFrame {
 
 	private JPanel contentPane;
@@ -38,6 +42,7 @@ public class Recordatorio extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
 		setResizable(false);
+		setTitle("Recordatorio");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

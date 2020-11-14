@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 import java.awt.Font;
 import javax.swing.JTable;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.ActionListener;
@@ -106,9 +107,6 @@ public class Calificaciones extends JFrame {
 					{"ACD", "4"},
 					{"DIN", "5"},
 					{"HLC", "6"},
-					{"PMDM", "7"},
-					{"EIE", "7"},
-					{"SGE", "7"},
 				},
 				new String[] {
 						"Asignatura", "Nota"
@@ -168,20 +166,25 @@ public class Calificaciones extends JFrame {
 
 		//Scroll Primer Trimestre
 		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBorder(null);
+		scrollPane.getViewport().setBackground(new Color(118, 45, 47));
 		panel.add(scrollPane, "PrimerTrim");
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
 		//Scroll Segundo Trimestre
 		JScrollPane scrollPane1 = new JScrollPane(table1);
+		scrollPane1.getViewport().setBackground(new Color(118, 45, 47));
 		panel.add(scrollPane1, "SegundoTrim");
 		scrollPane1.setVisible(false);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
 		//Scroll Tercer Trimestre
 		JScrollPane scrollPane2 = new JScrollPane(table2);
+		scrollPane2.getViewport().setBackground(new Color(118, 45, 47));
 		panel.add(scrollPane2, "TercerTrim");
 		scrollPane2.setVisible(false);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		
 		
 		//Eventos de los botones
 		btnPrimerTrimestre.addActionListener(new ActionListener() {

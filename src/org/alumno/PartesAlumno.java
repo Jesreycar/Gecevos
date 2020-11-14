@@ -29,6 +29,14 @@ import java.awt.event.ActionListener;
 import java.awt.Choice;
 import java.awt.Panel;
 import java.awt.Button;
+import javax.swing.JLayeredPane;
+import javax.swing.JDesktopPane;
+import javax.swing.Box;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JToggleButton;
+import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
+import java.awt.GridLayout;
 /**
  * Informaci�n de partes para los alumnos
  * @author Jesus Reyes
@@ -108,15 +116,22 @@ public class PartesAlumno extends JFrame {
 		lblcurso.setBackground(new Color(59, 22, 24));
 		lblcurso.setBounds(173, 100, 379, 38);
 		contentPane.add(lblcurso);
-
-		//Panel scroll para mostar las listas de partes
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBorder(new LineBorder(Color.BLACK, 2));
-		scrollPane.setBackground(new Color(118, 45, 47));
-		scrollPane.getViewport().setBackground(new Color(118, 45, 47));
-		scrollPane.setBounds(27, 149, 525, 265);
-		contentPane.add(scrollPane);
-
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(27, 149, 525, 255);
+		contentPane.add(panel);
+		panel.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		//ToggleButton para el acordeon
+		JToggleButton tglbtnPrimero = new JToggleButton("Primero");
+		panel.add(tglbtnPrimero);
+		
+		JButton btn1 = new JButton("Boton1");
+		panel.add(btn1);
+		
+		JButton btn2 = new JButton("Boton2");
+		panel.add(btn2);
+		
 		//Boton volver al menu del usuario
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {

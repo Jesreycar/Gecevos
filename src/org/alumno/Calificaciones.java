@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 /**
  * Clase para mostrar las calificaciones del alumno por asignatura
@@ -66,41 +67,6 @@ public class Calificaciones extends JFrame {
 		btnTercerTrimestre.setBounds(393, 39, 161, 29);
 		contentPane.add(btnTercerTrimestre);
 		
-		//Panel donde se muestra la tabla
-		JPanel panel = new JPanel();
-		panel.setBorder(null);
-		panel.setBounds(27, 94, 527, 317);
-		panel.setBackground(new Color(118, 45, 47));
-		panel.setLayout(new BorderLayout(0, 0));
-		contentPane.add(panel);
-		
-		//Tabla
-		table = new JTable();
-		table.setGridColor(Color.BLACK);
-		table.setFont(new Font("Dialog", Font.PLAIN, 15));
-		table.setForeground(Color.WHITE);
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setBackground(new Color(118, 45, 47));
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"Matematicas", "6"},
-				{"Física", "8"},
-				{"Física", "8"},
-				{"Física", "8"},
-				{"Física", "8"},
-			},
-			new String[] {
-				"Asignatura", "Nota"
-			}
-		));
-		table.setDefaultEditor(Object.class, null);
-		table.setRowHeight(50);
-		panel.add(table);
-		
-		//Scroll para la lista
-		JScrollBar scrollBar = new JScrollBar();
-		panel.add(scrollBar, BorderLayout.EAST);
-		
 		//Boton volver al menu del usuario
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
@@ -117,5 +83,40 @@ public class Calificaciones extends JFrame {
 		btnVolver.setBackground(new Color(45, 118, 116));
 		btnVolver.setBounds(215, 425, 132, 25);
 		contentPane.add(btnVolver);
+		
+		//Panel para la tabla
+		JPanel panel = new JPanel();
+		panel.setBounds(27, 97, 527, 307);
+		contentPane.add(panel);
+		
+		//Tabla
+		table = new JTable();
+		table.setGridColor(Color.BLACK);
+		table.setFont(new Font("Dialog", Font.PLAIN, 15));
+		table.setForeground(Color.WHITE);
+		table.setBorder(new LineBorder(new Color(0, 0, 0)));
+		table.setBackground(new Color(118, 45, 47));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Matematicas", "6"},
+				{"Física", "8"},
+				{"Física", "8"},
+				{"Física", "8"},
+				{"Física", "8"},
+				{"Física", "8"},
+				{"Física", "8"},
+			},
+			new String[] {
+				"Asignatura", "Nota"
+			}
+		));
+		table.setDefaultEditor(Object.class, null);
+		panel.setLayout(new BorderLayout(0, 0));
+		table.setRowHeight(50);
+		
+		//Scroll para la lista
+		JScrollPane scrollPane = new JScrollPane(table);
+		panel.add(scrollPane);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 	}
 }

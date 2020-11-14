@@ -1,6 +1,5 @@
 package org.alumno;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,8 +11,8 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JScrollBar;
 import java.awt.CardLayout;
+import javax.swing.JScrollPane;
 
 /**
  * Clase para mostrar las calificaciones del alumno por asignatura
@@ -184,5 +183,10 @@ public class Calificaciones extends JFrame {
 		btnVolver.setBackground(new Color(45, 118, 116));
 		btnVolver.setBounds(215, 425, 132, 25);
 		contentPane.add(btnVolver);
+		
+		//Scroll para la lista
+		JScrollPane scrollPane = new JScrollPane(table);
+		panel.add(scrollPane);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 	}
 }

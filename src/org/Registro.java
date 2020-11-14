@@ -120,12 +120,12 @@ public class Registro extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(mostrar) {
-					Icon icono = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon icono = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImg.setIcon(icono);
 					textPasswd.setEchoChar((char)0);
 					mostrar = false;
 				}else {
-					Icon icono = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon icono = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImg.setIcon(icono);
 					textPasswd.setEchoChar('*');
 					mostrar = true;
@@ -149,12 +149,12 @@ public class Registro extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(mostrar1) {
-					Icon icono1 = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImg1.getWidth(), lblImg1.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon icono1 = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImg1.getWidth(), lblImg1.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImg1.setIcon(icono1);
 					textPasswdConfirm.setEchoChar((char)0);
 					mostrar1 = false;
 				}else {
-					Icon icono1 = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImg1.getWidth(), lblImg1.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon icono1 = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImg1.getWidth(), lblImg1.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImg1.setIcon(icono1);
 					textPasswdConfirm.setEchoChar('*');
 					mostrar1 = true;

@@ -355,12 +355,12 @@ public class Perfil extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(mostrar) {
-					Icon iconoM = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM.getWidth(), lblImgM.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM.getWidth(), lblImgM.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImgM.setIcon(iconoM);
 					jpContra.setEchoChar((char)0);
 					mostrar = false;
 				}else {
-					Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM.getWidth(), lblImgM.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM.getWidth(), lblImgM.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImgM.setIcon(iconoM);
 					jpContra.setEchoChar('*');
 					mostrar = true;
@@ -368,7 +368,7 @@ public class Perfil extends JFrame {
 			}
 		});
 		lblImgM.setBounds(new Rectangle(471, 27, 20, 20));
-		Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM.getWidth(), lblImgM.getHeight(), Image.SCALE_AREA_AVERAGING));
+		Icon iconoM = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM.getWidth(), lblImgM.getHeight(), Image.SCALE_AREA_AVERAGING));
 		lblImgM.setIcon(iconoM);
 		lblImgM.setForeground(Color.WHITE);
 		jpCambiarContra.add(lblImgM);
@@ -378,12 +378,12 @@ public class Perfil extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(mostrar) {
-					Icon iconoM = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM1.getWidth(), lblImgM1.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM1.getWidth(), lblImgM1.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImgM1.setIcon(iconoM);
 					jpContra_1.setEchoChar((char)0);
 					mostrar = false;
 				}else {
-					Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM1.getWidth(), lblImgM1.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM1.getWidth(), lblImgM1.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImgM1.setIcon(iconoM);
 					jpContra_1.setEchoChar('*');
 					mostrar = true;
@@ -391,7 +391,7 @@ public class Perfil extends JFrame {
 			}
 		});
 		lblImgM1.setBounds(new Rectangle(471, 60, 20, 20));
-		Icon iconoM1 = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM1.getWidth(), lblImgM1.getHeight(), Image.SCALE_AREA_AVERAGING));
+		Icon iconoM1 = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM1.getWidth(), lblImgM1.getHeight(), Image.SCALE_AREA_AVERAGING));
 		lblImgM1.setIcon(iconoM1);
 		lblImgM1.setForeground(Color.WHITE);
 		jpCambiarContra.add(lblImgM1);
@@ -401,12 +401,12 @@ public class Perfil extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(mostrar) {
-					Icon iconoM = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM2.getWidth(), lblImgM2.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM2.getWidth(), lblImgM2.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImgM2.setIcon(iconoM);
 					jpContra_2.setEchoChar((char)0);
 					mostrar = false;
 				}else {
-					Icon iconoM = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM2.getWidth(), lblImgM2.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon iconoM = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM2.getWidth(), lblImgM2.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImgM2.setIcon(iconoM);
 					jpContra_2.setEchoChar('*');
 					mostrar = true;
@@ -414,7 +414,7 @@ public class Perfil extends JFrame {
 			}
 		});
 		lblImgM2.setBounds(new Rectangle(471, 96, 20, 20));
-		Icon iconoM2 = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImgM2.getWidth(), lblImgM2.getHeight(), Image.SCALE_AREA_AVERAGING));
+		Icon iconoM2 = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImgM2.getWidth(), lblImgM2.getHeight(), Image.SCALE_AREA_AVERAGING));
 		lblImgM2.setIcon(iconoM2);
 		lblImgM2.setForeground(Color.WHITE);
 		jpCambiarContra.add(lblImgM2);

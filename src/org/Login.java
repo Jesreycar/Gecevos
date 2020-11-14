@@ -145,12 +145,12 @@ public class Login extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(mostrar) {
-					Icon icono = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon icono = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImg.setIcon(icono);
 					pfContra.setEchoChar((char)0);
 					mostrar = false;
 				}else {
-					Icon icono = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
+					Icon icono = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
 					lblImg.setIcon(icono);
 					pfContra.setEchoChar('*');
 					mostrar = true;
@@ -158,7 +158,7 @@ public class Login extends JFrame {
 			}
 		});
 		lblImg.setBounds(new Rectangle(0, 0, 20, 20));
-		Icon icono = new ImageIcon(new ImageIcon("img/Ocultar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
+		Icon icono = new ImageIcon(new ImageIcon("img/Mostrar.png").getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_AREA_AVERAGING));
 		lblImg.setIcon(icono);
 		lblImg.setForeground(Color.WHITE);
 		GroupLayout gl_panel = new GroupLayout(panel);

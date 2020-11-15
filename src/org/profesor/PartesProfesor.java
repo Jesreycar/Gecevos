@@ -8,6 +8,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import org.componente.Acordeon;
+
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -79,12 +82,6 @@ public class PartesProfesor extends JFrame {
 		lblDescripcion.setBounds(20, 108, 540, 31);
 		contentPane.add(lblDescripcion);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBorder(new LineBorder(Color.BLACK, 2));
-		scrollPane.setBackground(new Color(118, 45, 47));
-		scrollPane.setBounds(20, 213, 540, 201);
-		contentPane.add(scrollPane);
-		
 		textNombre = new JTextField();
 		textNombre.setFont(new Font("Dialog", Font.PLAIN, 15));
 		textNombre.setColumns(10);
@@ -148,6 +145,26 @@ public class PartesProfesor extends JFrame {
 		btnVolver.setBackground(new Color(45, 118, 116));
 		btnVolver.setBounds(218, 425, 132, 25);
 		contentPane.add(btnVolver);
+		
+		//Scroll panel donde se muestra la lista de clases
+		Acordeon acc = new Acordeon();
+		acc.setBounds(25, 243, 500, 200);
+		JScrollPane scroll = new JScrollPane(acc);
+		scroll.setBounds(25, 210, 533, 200);
+		contentPane.add(scroll);
+
+		btnAsignarParte.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JPanel panel = new JPanel();
+				panel.setBackground(Color.BLACK);
+				JLabel lblDni= new JLabel();
+				lblDni.setBounds(20, 20, 20, 100);
+				panel.add(lblDni);
+				acc.annadir(panel, textNombre.getText());
+				acc.setBounds(0, 0, 0, 0);
+			}
+		});
+	
 	}
 
 }

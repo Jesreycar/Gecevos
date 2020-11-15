@@ -114,7 +114,7 @@ public class Acordeon extends JPanel {
 		for (JPanel jPanel : contenido) {
 			alto+=jPanel.getHeight();
 		}
-		setPreferredSize(new Dimension(getWidth(), alto));
+		setPreferredSize(new Dimension(barras.get(0).getWidth(), alto));
 	
 	}
 

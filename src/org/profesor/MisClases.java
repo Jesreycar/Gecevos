@@ -193,24 +193,25 @@ public class MisClases extends JFrame {
 				menu.setVisible(true);
 			}
 		});
-		
-				//Scroll panel donde se muestra la lista de clases
-				Acordeon acc = new Acordeon();
-				acc.setBounds(25, 253, 533, 200);
-				JScrollPane scroll = new JScrollPane(acc);
-				scroll.setBounds(25, 253, 550, 200);
-				contentPane.add(scroll);
-				
-				btnMatricularAlumno.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						JPanel panel = new JPanel();
-						JLabel lblDni= new JLabel();
-						lblDni.setBounds(20, 20, 20, 100);
-						lblDni.setText(textDNI.getText());
-						panel.add(lblDni);
-						acc.annadir(panel, textCurso.getText());
-						acc.setBounds(25, 253, 533, 200);
-					}
-				});
+
+		//Scroll panel donde se muestra la lista de clases
+		Acordeon acc = new Acordeon();
+		acc.setBounds(25, 253, 500, 200);
+		JScrollPane scroll = new JScrollPane(acc);
+		scroll.setBounds(25, 253, 533, 200);
+		contentPane.add(scroll);
+
+		btnMatricularAlumno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JPanel panel = new JPanel();
+				panel.setBackground(Color.BLACK);
+				JLabel lblDni= new JLabel();
+				lblDni.setBounds(20, 20, 20, 100);
+				lblDni.setText(textDNI.getText());
+				panel.add(lblDni);
+				acc.annadir(panel, textCurso.getText());
+				acc.setBounds(0, 0, 0, 0);
+			}
+		});
 	}
 }

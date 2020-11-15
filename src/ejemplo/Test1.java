@@ -46,6 +46,7 @@ public class Test1 extends JFrame {
 		contentPane.setLayout(null);
 
 		Acordeon acc = new Acordeon();
+		acc.setBounds(0, 0, 100, 100);
 		contentPane.add(acc);
 
 		for(int i = 0; i<10; i++) {

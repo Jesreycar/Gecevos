@@ -1,23 +1,22 @@
 package ejemplo;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import org.componente.Acordeon;
-
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Test1 extends JFrame {
 
 	private JPanel contentPane;
+	private ArrayList<JPanel> acordeon = new ArrayList<JPanel>();
 
 	/**
 	 * Launch the application.
@@ -45,40 +44,31 @@ public class Test1 extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		Acordeon acc = new Acordeon();
 		contentPane.add(acc);
-		
-		JPanel pane = new JPanel();
-		JButton boton = new JButton();
-		boton.setSize(100,100);
-		boton.setText("Hola");
-		pane.add(boton);
-		JLabel label = new JLabel();
-		label.setOpaque(true);
-		label.setBackground(Color.BLACK);
-		label.setBounds(150,0,100,100);
-		label.setText("Hola buenos días señor Juan Antonio");
-		pane.add(label);
-		pane.setBackground(Color.BLUE);
-		pane.setLayout(null);
-		
-		JPanel pane1 = new JPanel();
-		JButton boton1 = new JButton();
-		boton1.setSize(50, 20);
-		pane1.add(boton1);
-		pane1.setBackground(Color.BLACK);
-		
-		JPanel pane2 = new JPanel();
-		JButton boton2 = new JButton();
-		boton2.setSize(50, 20);
-		pane2.add(boton2);
-		pane2.setBackground(Color.YELLOW);
-		
-		acc.annadir(pane, "hola mundo");
-		acc.annadir(pane1,"hola planeta");
-		acc.annadir(pane2,"hola caracola");
-		
+
+		for(int i = 0; i<10; i++) {
+			acordeon.add(new JPanel());
+			acordeon.get(i).setName("panel " + i);
+			acordeon.get(i).add(new JButton("Eliminar"));
+			acordeon.get(i).getComponent(0).setBounds(5, 5, 100, 50);
+			JPanel panel =  acordeon.get(i);
+			JButton boton = (JButton) acordeon.get(i).getComponent(0);
+			boton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					acc.eliminar(acordeon.indexOf(boton.getParent()));
+					acordeon.remove(acordeon.indexOf(boton.getParent()));
+					
+				}
+			});
+		}
+
+		for (JPanel panel : acordeon) {
+			acc.annadir(panel,panel.getName());
+		}
 	}
-	
+
 }

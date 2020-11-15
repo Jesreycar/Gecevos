@@ -1,5 +1,6 @@
 package org.componente;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -97,6 +98,16 @@ public class Acordeon extends JPanel {
 					}
 
 				}
+				
+				//Arreglos del problema scroll
+				int alto = 0;
+				for (JToggleButton jToggleButton : barras) {
+					alto+=jToggleButton.getHeight();
+				}
+				for (JPanel jPanel : contenido) {
+					alto+=jPanel.getHeight();
+				}
+				setPreferredSize(new Dimension(getWidth(), alto));
 			}
 		});
 		

@@ -6,14 +6,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
-
+import org.componente.Acordeon;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JToggleButton;
-import java.awt.GridLayout;
+import java.util.ArrayList;
+import javax.swing.JScrollPane;
 /**
  * Informaci�n de partes para los alumnos
  * @author Jesus Reyes
@@ -94,20 +94,37 @@ public class PartesAlumno extends JFrame {
 		lblcurso.setBounds(173, 100, 379, 38);
 		contentPane.add(lblcurso);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(27, 149, 525, 255);
-		contentPane.add(panel);
-		panel.setLayout(new GridLayout(0, 2, 0, 0));
+		Acordeon acc = new Acordeon();
+		JScrollPane scrollPane = new JScrollPane(acc,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
+				,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		acc.setBounds(27, 177, 522, 200);
+		scrollPane.setBounds(27, 177, 525, 221);
+		contentPane.add(scrollPane);
 		
-		//ToggleButton para el acordeon
-		JToggleButton tglbtnPrimero = new JToggleButton("Primero");
-		panel.add(tglbtnPrimero);
-		
-		JButton btn1 = new JButton("Boton1");
-		panel.add(btn1);
-		
-		JButton btn2 = new JButton("Boton2");
-		panel.add(btn2);
+		ArrayList<JPanel> acordeon = new ArrayList<JPanel>();
+		for(int i = 0; i<5; i++) {
+			acordeon.add(new JPanel());
+			acordeon.get(i).setName("panel " + i);
+			acordeon.get(i).add(new JButton("Eliminar"));
+			acordeon.get(i).getComponent(0).setBounds(5, 5, 100, 20);
+			JPanel panel1 =  acordeon.get(i);
+			JButton boton = (JButton) acordeon.get(i).getComponent(0);
+			boton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					acc.eliminar(acordeon.indexOf(boton.getParent()));
+					acordeon.remove(acordeon.indexOf(boton.getParent()));
+					
+				}
+			});
+		}
+
+		for (JPanel panel1 : acordeon) {
+			acc.setAltoContenido(50);
+			acc.setAltoBotones(30);
+			acc.annadir(panel1,panel1.getName());
+		}
 		
 		//Boton volver al menu del usuario
 		JButton btnVolver = new JButton("Volver");
@@ -125,5 +142,7 @@ public class PartesAlumno extends JFrame {
 		btnVolver.setBackground(new Color(45, 118, 116));
 		btnVolver.setBounds(215, 425, 132, 25);
 		contentPane.add(btnVolver);
+		
+		
 	}
 }
